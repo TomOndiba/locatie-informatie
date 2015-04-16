@@ -1,0 +1,72 @@
+.alphabet {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.alphabet ul {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.alphabet ul, .alphabet li, .alphabet ul li{
+    display: inline-block;
+}
+
+div.calendar-wrapper table{
+    text-align: center;
+}
+
+div.calendar-wrapper table th{
+    text-align: center;
+}
+
+div.calendar-wrapper table td{
+    width: 30px;
+    height: 20px;
+    font-size: 120%;
+}
+
+div.calendar-wrapper h3{
+    text-align: center;
+    font-size: 120%;
+}
+
+div.calendar-wrapper{
+    width: 20em;
+    background-color: rgba(255,0,0,0.05);
+}
+
+div.calendar-wrapper td.weeknumber, div.calendar-wrapper th.weeknumber{
+    color:#0000ff;
+    font-size: 70%;
+    font-style: italic;
+}
+
+div.calendar-wrapper td.today {
+    -moz-border-radius: 36px;
+    -webkit-border-radius: 36px;
+    border-radius: 36px;
+    background-color: rgba(0,255,0,0.15)
+}
+
+ul.calendar-container li{
+    font-size: 90%;
+    display:inline-block;
+    padding-right: 1.5em;
+    padding-left: 0.01em;
+}
+
+ul.calendar-container {
+    overflow: hidden;
+    width: 100%;
+    list-style: none;
+    padding-right: 0em;
+    padding-left: 0em;
+}
+
+li.inline{
+    display:inline-block;
+    padding-right: 1em;
+}

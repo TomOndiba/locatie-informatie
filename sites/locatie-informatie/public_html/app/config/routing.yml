@@ -1,0 +1,18 @@
+stef_redirect_trailing_slash:
+    resource: "@StefRedirectTrailingSlashBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+stef_simple_cms_crud:
+    resource: "@StefSimpleCmsBundle/Resources/config/routing/crud.yml"
+    prefix:   /cms
+
+stef_simple_cms_index:
+    resource: "@StefSimpleCmsBundle/Resources/config/routing/index.yml"
+    prefix:   /cms
+
+stef_locatie_informatie:
+    resource: "@StefLocatieInformatieBundle/Resources/config/routing.yml"
+    prefix:   /

@@ -1,0 +1,100 @@
+{
+    "name": "stef/locatie-informatie",
+    "license": "Not decided yet",
+    "type": "project",
+    "description": "Website for displaying free locationdata",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "jquery/jquery",
+                "version": "1.10.2",
+                "dist": {
+                    "url": "http://code.jquery.com/jquery-1.10.2.js",
+                    "type": "file"
+                }
+            }
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/stefanius/generate-fixtures-bundle"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/stefanius/simple-cms-bundle"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "symfony/symfony": "~2.6",
+        "doctrine/orm": "~2.2,>=2.2.3,<2.5",
+        "doctrine/dbal": "<2.5",
+        "doctrine/doctrine-bundle": "~1.2",
+        "phpunit/phpunit": "~4.1",
+        "doctrine/doctrine-fixtures-bundle": "~2.2",
+        "symfony/assetic-bundle": "~2.3",
+        "symfony/swiftmailer-bundle": "~2.3",
+        "symfony/monolog-bundle": "~2.4",
+        "sensio/distribution-bundle": "~2.3",
+        "sensio/framework-extra-bundle": "~3.0",
+        "sensio/generator-bundle": "~2.3",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "twbs/bootstrap": "3.0.*",
+        "jquery/jquery":  "1.10.*",
+        "braincrafted/bootstrap-bundle": "~2.0",
+        "jms/serializer-bundle": "dev-master",
+        "nelmio/alice": "v1.6.0",
+        "egeloen/ckeditor-bundle": "~2.0",
+        "egeloen/google-map-bundle": "~2.2",
+        "frequence-web/calendr-bundle": "~1.0",
+        "whiteoctober/breadcrumbs-bundle": "~1.0",
+        "stef/crud-contract": "dev-master",
+        "stef/manipulation": "dev-master",
+        "stef/slug-manipulation": "dev-master",
+        "stef/key-value-manipulation": "dev-master",
+        "stef/generate-fixtures-bundle": "dev-master",
+        "stef/simple-cms-bundle": "dev-master",
+        "stef/redirect-trailing-slash-bundle": "dev-master"
+
+    },
+    "scripts": {
+      "post-root-package-install": [
+        "SymfonyStandard\\Composer::hookRootPackageInstall"
+      ],
+      "post-install-cmd": [
+        "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+        "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+        "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+        "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+        "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+        "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+        "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
+      ],
+      "post-update-cmd": [
+        "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+        "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+        "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+        "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+        "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+        "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+        "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
+      ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "branch-alias": {
+            "dev-master": "2.4-dev"
+        }
+    }
+}
