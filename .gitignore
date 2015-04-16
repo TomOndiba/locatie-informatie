@@ -37,3 +37,4 @@
 /composer.phar
 
 .vagrant
+sites/locatie-informatie/SQL/postcode_NL.sql
