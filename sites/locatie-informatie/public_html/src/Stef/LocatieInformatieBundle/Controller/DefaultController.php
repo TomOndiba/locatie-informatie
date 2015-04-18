@@ -2,12 +2,16 @@
 
 namespace Stef\LocatieInformatieBundle\Controller;
 
+use Stef\LocatieInformatieBundle\Conversion\MunicipalityConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
     public function indexAction($name)
     {
-        return $this->render('StefLocatieInformatieBundle:Default:index.html.twig', array('name' => $name));
+
+        $a = new MunicipalityConverter($this->get('stef_simple_cms.postcode_manager'), $this->get('stef_simple_cms.municipality_manager'), $this->get('stef.slugifier'));
+        $a->convert();
+        var_dump('erte6y4y');
     }
 }

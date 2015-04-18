@@ -5,9 +5,9 @@ namespace Stef\LocatieInformatieBundle\Manager;
 use Doctrine\Entity;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
-class ProvinceManager extends LocationManager
+class MunicipalityManager extends LocationManager
 {
-    protected $repoName = 'StefLocatieInformatieBundle:Province';
+    protected $repoName = 'StefLocatieInformatieBundle:Municipality';
 
     /**
      * @param ParameterBag $data

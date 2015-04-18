@@ -9,6 +9,8 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lng: 0
     locationCode: PROV00001
     provinceCode: ZH
+    sourceLocationTypeId: 1
+    locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-2:
@@ -21,6 +23,8 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lng: 0
     locationCode: PROV00002
     provinceCode: NH
+    sourceLocationTypeId: 2
+    locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-3:
@@ -33,6 +37,8 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lng: 0
     locationCode: PROV00003
     provinceCode: ZL
+    sourceLocationTypeId: 3
+    locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-4:
@@ -45,6 +51,8 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lng: 0
     locationCode: PROV00004
     provinceCode: LB
+    sourceLocationTypeId: 4
+    locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-5:
@@ -57,6 +65,8 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lng: 0
     locationCode: PROV00005
     provinceCode: GL
+    sourceLocationTypeId: 5
+    locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-6:
@@ -69,6 +79,8 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lng: 0
     locationCode: PROV00006
     provinceCode: FL
+    sourceLocationTypeId: 6
+    locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-7:
@@ -81,6 +93,8 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lng: 0
     locationCode: PROV00007
     provinceCode: UT
+    sourceLocationTypeId: 7
+    locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-8:
@@ -93,6 +107,8 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lng: 0
     locationCode: PROV00008
     provinceCode: FL
+    sourceLocationTypeId: 8
+    locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-9:
@@ -105,6 +121,8 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lng: 0
     locationCode: PROV00009
     provinceCode: OV
+    sourceLocationTypeId: 9
+    locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-10:
@@ -117,6 +135,8 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lng: 0
     locationCode: PROV00010
     provinceCode: NB
+    sourceLocationTypeId: 10
+    locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-11:
@@ -129,6 +149,8 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lng: 0
     locationCode: PROV00011
     provinceCode: DR
+    sourceLocationTypeId: 11
+    locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-12:
@@ -141,5 +163,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lng: 0
     locationCode: PROV00012
     provinceCode: GR
+    sourceLocationTypeId: 12
+    locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>

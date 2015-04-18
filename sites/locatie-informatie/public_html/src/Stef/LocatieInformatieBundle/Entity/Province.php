@@ -15,7 +15,7 @@ class Province extends Location
     /**
      * @var string
      *
-     * @ORM\Column(name="province_code", type="string", length=255)
+     * @ORM\Column(name="province_code", type="string", length=3)
      */
     protected $province_code;
 

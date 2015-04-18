@@ -18,7 +18,7 @@ abstract class Location
     /**
      * @var string
      *
-     * @ORM\Column(name="slug", type="string", length=255)
+     * @ORM\Column(name="slug", type="string", length=255, unique=true)
      */
     protected $slug;
 
@@ -326,6 +326,22 @@ abstract class Location
     public function setLocationDetail($locationDetail)
     {
         $this->locationDetail = $locationDetail;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSourceLocationTypeId()
+    {
+        return $this->sourceLocationTypeId;
+    }
+
+    /**
+     * @param int $sourceLocationTypeId
+     */
+    public function setSourceLocationTypeId($sourceLocationTypeId)
+    {
+        $this->sourceLocationTypeId = $sourceLocationTypeId;
     }
 
     /**

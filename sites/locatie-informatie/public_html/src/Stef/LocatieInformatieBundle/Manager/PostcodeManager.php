@@ -3,11 +3,10 @@
 namespace Stef\LocatieInformatieBundle\Manager;
 
 use Doctrine\Entity;
-use Stef\SimpleCmsBundle\Manager\AbstractObjectManager;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
-class PostcodeManager extends AbstractObjectManager {
-
+class PostcodeManager extends LocationManager
+{
     protected $repoName = 'StefLocatieInformatieBundle:Postcode';
 
     /**

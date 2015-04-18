@@ -7,11 +7,16 @@ services:
         class: Stef\LocatieInformatieBundle\Manager\ProvinceManager
         arguments: ["@doctrine.orm.entity_manager"]
 
+    stef_simple_cms.municipality_manager:
+        class: Stef\LocatieInformatieBundle\Manager\MunicipalityManager
+        arguments: ["@doctrine.orm.entity_manager"]
+
     stef_simple_cms.entity_mapper:
         class: Stef\SimpleCmsBundle\EntityMapper\Mapper
         calls:
             - [addNewMapping, ["Postcode", "StefLocatieInformatieBundle", 'Stef\LocatieInformatieBundle\Entity', "@stef_simple_cms.postcode_manager"]]
             - [addNewMapping, ["Province", "StefLocatieInformatieBundle", 'Stef\LocatieInformatieBundle\Entity', "@stef_simple_cms.province_manager"]]
+            - [addNewMapping, ["Municipality", "StefLocatieInformatieBundle", 'Stef\LocatieInformatieBundle\Entity', "@stef_simple_cms.municipality_manager"]]
 
     stef_simple_cms.form_options:
         class: Stef\SimpleCmsBundle\Form\FormOptions
