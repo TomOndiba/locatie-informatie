@@ -8,7 +8,7 @@ use Stef\LocatieInformatieBundle\Manager\MunicipalityManager;
 use Stef\LocatieInformatieBundle\Manager\PostcodeManager;
 use Stef\SlugManipulation\Manipulators\SlugManipulator;
 
-class MunicipalityConverter
+class MunicipalityConverter extends AbstractConverter
 {
     /**
      * @var PostcodeManager
@@ -45,6 +45,8 @@ class MunicipalityConverter
 
     protected function doStuff($entities, $type)
     {
+        $correction = new Correction($this->municipalityManager);
+
         /**
          * @var $p Postcode
          */
@@ -59,12 +61,12 @@ class MunicipalityConverter
                 continue;
             }
 
-            $slug = $this->slugifier->manipulate($p->getMunicipality());
+            $slug = $this->slugifier->manipulate('gem-' . $p->getMunicipality());
 
             $entity = $this->municipalityManager->getRepository()->findOneBySlug($slug);
 
             if ($entity != null) {
-                $slug = $this->slugifier->manipulate($p->getMunicipality() . '-' . $p->getProvinceCode());
+                $slug = $this->slugifier->manipulate('gem-' . $p->getMunicipality() . '-' . $p->getProvinceCode());
 
                 $entity = $this->municipalityManager->getRepository()->findOneBySlug($slug);
 
@@ -73,21 +75,24 @@ class MunicipalityConverter
                 }
             }
 
-
-            $m = new Municipality();
+            /**
+             * @var $m Municipality
+             */
+            $m = $this->copyFields(new Municipality(), $p);
             $m->setTitle($p->getMunicipality());
-            $m->setLat($p->getLat());
-            $m->setLng($p->getLon());
-            $m->setLocationDetail($p->getLocationDetail());
-            $m->setRdX($p->getRdX());
-            $m->setRdY($p->getRdY());
+
             $m->setSlug($slug);
             $m->setSourceLocationTypeId($p->getMunicipalityId());
             $m->setProvinceCode($p->getProvinceCode());
-            $m->setCreated($p->getChangedDate());
-            $m->setModified($p->getChangedDate());
 
-            $this->postcodeManager->persistAndFlush($m);
+
+            $m = $correction->correct($m, $p);
+
+            $entity = $this->municipalityManager->getRepository()->findOneBySlug($m->getSlug());
+
+            if ($entity == null) {
+                $this->municipalityManager->persistAndFlush($m);
+            }
         }
     }
 }
