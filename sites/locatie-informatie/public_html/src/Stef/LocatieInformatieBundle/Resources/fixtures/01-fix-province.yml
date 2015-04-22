@@ -3,6 +3,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     id: 1
     slug: zuid-holland
     title: Zuid-Holland
+    title_lng: Zuid-Holland
     rdX: 0
     rdY: 0
     lat: 0
@@ -17,6 +18,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     id: 2
     slug: noord-holland
     title: Noord-Holland
+    title_lng: Noord-Holland
     rdX: 0
     rdY: 0
     lat: 0
@@ -31,6 +33,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     id: 3
     slug: zeeland
     title: Zeeland
+    title_lng: Zeeland
     rdX: 0
     rdY: 0
     lat: 0
@@ -45,6 +48,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     id: 4
     slug: limburg
     title: Limburg
+    title_lng: Limburg
     rdX: 0
     rdY: 0
     lat: 0
@@ -59,6 +63,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     id: 5
     slug: gelderland
     title: Gelderland
+    title_lng: Gelderland
     rdX: 0
     rdY: 0
     lat: 0
@@ -73,6 +78,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     id: 6
     slug: flevoland
     title: Flevoland
+    title_lng: Flevoland
     rdX: 0
     rdY: 0
     lat: 0
@@ -87,6 +93,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     id: 7
     slug: utrecht
     title: Utrecht
+    title_lng: Utrecht
     rdX: 0
     rdY: 0
     lat: 0
@@ -101,6 +108,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     id: 8
     slug: friesland
     title: Friesland
+    title_lng: Friesland
     rdX: 0
     rdY: 0
     lat: 0
@@ -115,6 +123,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     id: 9
     slug: overijsel
     title: Overijsel
+    title_lng: Overijsel
     rdX: 0
     rdY: 0
     lat: 0
@@ -129,6 +138,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     id: 10
     slug: noord-brabant
     title: Noord-Brabant
+    title_lng: Noord-Brabant
     rdX: 0
     rdY: 0
     lat: 0
@@ -143,6 +153,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     id: 11
     slug: drenthe
     title: Drenthe
+    title_lng: Drenthe
     rdX: 0
     rdY: 0
     lat: 0
@@ -157,6 +168,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     id: 11
     slug: groningen
     title: Groningen
+    title_lng: Groningen
     rdX: 0
     rdY: 0
     lat: 0
