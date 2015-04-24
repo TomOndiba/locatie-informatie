@@ -39,11 +39,11 @@ class MunicipalityConverter extends AbstractConverter
          */
         $qbPostcode = $this->postcodeManager->getRepository()->createQueryBuilder('p');
 
-        $this->doStuff($qbPostcode->select('p')->groupBy('p.municipality')->getQuery()->getResult(), 'municipality');
-        $this->doStuff($qbPostcode->select('p')->groupBy('p.municipalityId')->getQuery()->getResult(), 'id');
+        $this->doStuff($qbPostcode->select('p')->groupBy('p.municipality')->getQuery()->getResult());
+        $this->doStuff($qbPostcode->select('p')->groupBy('p.municipalityId')->getQuery()->getResult());
     }
 
-    protected function doStuff($entities, $type)
+    protected function doStuff($entities)
     {
         $correction = new Correction($this->municipalityManager);
 
@@ -51,28 +51,15 @@ class MunicipalityConverter extends AbstractConverter
          * @var $p Postcode
          */
         foreach ($entities as $p) {
-            if ($type === 'id') {
-                $entity = $this->municipalityManager->getRepository()->findOneBySourceLocationTypeId($p->getMunicipalityId());
-            } else {
-                $entity = $this->municipalityManager->getRepository()->findOneByTitle($p->getMunicipality());
-            }
 
-            if ($entity != null) {
+            if (null != $this->municipalityManager->getRepository()->findOneBy(['provinceCode' => $p->getProvinceCode(), 'title' => $p->getMunicipality()])) {
                 continue;
             }
 
-            $slug = $this->slugifier->manipulate('gem-' . $p->getMunicipality());
+            $slug = $this->slugifier->manipulate('gem-' . $p->getMunicipality() . '-' . $p->getProvinceCode());
 
-            $entity = $this->municipalityManager->getRepository()->findOneBySlug($slug);
-
-            if ($entity != null) {
-                $slug = $this->slugifier->manipulate('gem-' . $p->getMunicipality() . '-' . $p->getProvinceCode());
-
-                $entity = $this->municipalityManager->getRepository()->findOneBySlug($slug);
-
-                if ($entity != null) {
-                    continue;
-                }
+            if (null != $this->municipalityManager->getRepository()->findOneBySlug($slug)) {
+                continue;
             }
 
             /**
@@ -85,14 +72,18 @@ class MunicipalityConverter extends AbstractConverter
             $m->setSourceLocationTypeId($p->getMunicipalityId());
             $m->setProvinceCode($p->getProvinceCode());
 
-
             $m = $correction->correct($m, $p);
 
-            $entity = $this->municipalityManager->getRepository()->findOneBySlug($m->getSlug());
 
-            if ($entity == null) {
-                $this->municipalityManager->persistAndFlush($m);
+            if (null != $this->municipalityManager->getRepository()->findOneBy(['provinceCode' => $m->getProvinceCode(), 'title' => $m->getMunicipality()])) {
+                continue;
             }
+
+            if (null != $this->municipalityManager->getRepository()->findOneBySlug($m->getSlug())) {
+                continue;
+            }
+
+            $this->municipalityManager->persistAndFlush($m);
         }
     }
 }
