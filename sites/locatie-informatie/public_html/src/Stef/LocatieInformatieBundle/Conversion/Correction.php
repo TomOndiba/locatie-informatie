@@ -54,6 +54,7 @@ class Correction {
     {
         if ($location instanceof Municipality) {
             $location->setProvinceCode($provinceCode);
+            $location->setTitleLng('Gemeente ' . $location->getTitle());
             $location->setSlug('gem-' . $this->slugifier->manipulate($location->getTitle() . '-' . $provinceCode));
         } elseif ($location instanceof City) {
             $municipality = $this->municipalityManager->getRepository()->findOneBy(['province_code' => $provinceCode, 'title' => $postcode->getMunicipality()]);
