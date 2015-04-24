@@ -32,6 +32,13 @@ abstract class Location
     /**
      * @var string
      *
+     * @ORM\Column(name="title_lng", type="string", length=255)
+     */
+    protected $title_lng;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="rdX", type="decimal", precision=31, scale=20, nullable=true)
      */
     protected $rdX;
@@ -358,5 +365,21 @@ abstract class Location
     public function setModified($modified)
     {
         $this->modified = $modified;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitleLng()
+    {
+        return $this->title_lng;
+    }
+
+    /**
+     * @param string $title_lng
+     */
+    public function setTitleLng($title_lng)
+    {
+        $this->title_lng = $title_lng;
     }
 }
