@@ -5,6 +5,7 @@ namespace Stef\LocatieInformatieBundle\Manager;
 use Stef\LocatieInformatieBundle\Entity\City;
 use Stef\LocatieInformatieBundle\Entity\Location;
 use Stef\LocatieInformatieBundle\Entity\Municipality;
+use Stef\LocatieInformatieBundle\Entity\ZipCode;
 use Stef\SimpleCmsBundle\Manager\AbstractObjectManager;
 
 abstract class LocationManager extends AbstractObjectManager
@@ -28,6 +29,8 @@ abstract class LocationManager extends AbstractObjectManager
             return 'CITY:' . $entity->getMunicipality()->getProvinceCode() . ':' . strtoupper(str_replace('-', '', $entity->getSlug()));
         } elseif ($entity instanceof Municipality) {
             return 'MUNI:' . $entity->getProvinceCode() . ':' . strtoupper(str_replace('-', '', $entity->getSlug()));
+        } elseif ($entity instanceof ZipCode) {
+            return 'ZIP:' . $entity->getPnum() . $entity->getPchar();
         }
 
         return null;

@@ -2,6 +2,7 @@
 
 namespace Stef\LocatieInformatieBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,6 +19,13 @@ class City extends Location
      * @ORM\ManyToOne(targetEntity="Municipality", inversedBy="cities")
      */
     protected $municipality;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="ZipCode", mappedBy="city")
+     */
+    protected $zipCodes;
 
     function __construct()
     {

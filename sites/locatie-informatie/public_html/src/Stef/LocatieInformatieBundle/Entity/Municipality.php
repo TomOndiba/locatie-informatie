@@ -30,6 +30,7 @@ class Municipality extends Location
     function __construct()
     {
         $this->locationType = "municipality";
+        $this->cities= new ArrayCollection();
     }
 
     /**
@@ -46,7 +47,6 @@ class Municipality extends Location
     public function setProvinceCode($province_code)
     {
         $this->province_code = $province_code;
-        $this->cities= new ArrayCollection();
     }
 
     /**

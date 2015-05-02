@@ -13,13 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class ZipCode extends Location
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="postcode", type="string", length=6)
-     */
-    private $postcode;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="pnum", type="smallint")
@@ -62,44 +55,28 @@ class ZipCode extends Location
     private $street;
 
     /**
-     * @var string
+     * @var City
      *
-     * @ORM\Column(name="city", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="City", inversedBy="zipCodes")
      */
-    private $city;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="province_code", type="string", length=3)
-     */
-    private $provinceCode;
+    protected $city;
 
     function __construct()
     {
         $this->locationType = "zipcode";
     }
 
-    /**
-     * @return string
-     */
-    public function getPostcode()
+    public function setTitle($title)
     {
-        return $this->postcode;
-    }
+        $title = trim($title);
+        $title = str_replace(' ', '', $title);
 
-    /**
-     * @param string $postcode
-     */
-    public function setPostcode($postcode)
-    {
-        $postcode = trim($postcode);
-        $postcode = str_replace(' ', '', $postcode);
+        $this->pnum = (int)substr($title, 0, 4);
+        $this->pchar = substr($title, 4, 2);
 
-        $this->pnum = (int)substr($postcode, 0, 4);
-        $this->pchar = substr($postcode, 3, 2);
+        $this->title = $title;
 
-        $this->postcode = $postcode;
+        return $this;
     }
 
     /**
@@ -183,7 +160,7 @@ class ZipCode extends Location
     }
 
     /**
-     * @return string
+     * @return City
      */
     public function getCity()
     {
@@ -191,26 +168,10 @@ class ZipCode extends Location
     }
 
     /**
-     * @param string $city
+     * @param City $city
      */
     public function setCity($city)
     {
         $this->city = $city;
-    }
-
-    /**
-     * @return string
-     */
-    public function getProvinceCode()
-    {
-        return $this->provinceCode;
-    }
-
-    /**
-     * @param string $provinceCode
-     */
-    public function setProvinceCode($provinceCode)
-    {
-        $this->provinceCode = $provinceCode;
     }
 }

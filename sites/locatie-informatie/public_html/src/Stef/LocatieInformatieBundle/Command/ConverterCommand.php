@@ -3,6 +3,7 @@ namespace Stef\LocatieInformatieBundle\Command;
 
 use Stef\LocatieInformatieBundle\Conversion\CityConverter;
 use Stef\LocatieInformatieBundle\Conversion\MunicipalityConverter;
+use Stef\LocatieInformatieBundle\Conversion\ZipcodeConverter;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -29,5 +30,8 @@ class ConverterCommand extends ContainerAwareCommand
 
         $cityConverter = new CityConverter($this->get('stef_simple_cms.postcode_manager'), $this->get('stef_simple_cms.municipality_manager'), $this->get('stef_simple_cms.city_manager'), $this->get('stef.slugifier'));
         $cityConverter->convert();
+
+        $zipConverter = new ZipcodeConverter($this->get('stef_simple_cms.postcode_manager'), $this->get('stef_simple_cms.municipality_manager'), $this->get('stef_simple_cms.city_manager'), $this->get('stef_simple_cms.zipcode_manager'), $this->get('stef.slugifier'));
+        $zipConverter->convert();
     }
 }

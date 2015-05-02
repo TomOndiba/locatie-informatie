@@ -52,7 +52,7 @@ class MunicipalityConverter extends AbstractConverter
          */
         foreach ($entities as $p) {
 
-            if (null != $this->municipalityManager->getRepository()->findOneBy(['provinceCode' => $p->getProvinceCode(), 'title' => $p->getMunicipality()])) {
+            if (null != $this->municipalityManager->getRepository()->findOneBy(['province_code' => $p->getProvinceCode(), 'title' => $p->getMunicipality()])) {
                 continue;
             }
 
@@ -75,7 +75,7 @@ class MunicipalityConverter extends AbstractConverter
             $m = $correction->correct($m, $p);
 
 
-            if (null != $this->municipalityManager->getRepository()->findOneBy(['provinceCode' => $m->getProvinceCode(), 'title' => $m->getMunicipality()])) {
+            if (null != $this->municipalityManager->getRepository()->findOneBy(['province_code' => $m->getProvinceCode(), 'title' => $m->getTitle()])) {
                 continue;
             }
 

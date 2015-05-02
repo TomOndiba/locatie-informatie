@@ -6,18 +6,58 @@ use Stef\LocatieInformatieBundle\Entity\City;
 use Stef\LocatieInformatieBundle\Entity\Postcode;
 use Stef\LocatieInformatieBundle\Entity\Location;
 use Stef\LocatieInformatieBundle\Entity\Municipality;
+use Stef\LocatieInformatieBundle\Entity\ZipCode;
+use Stef\LocatieInformatieBundle\Manager\CityManager;
+use Stef\LocatieInformatieBundle\Manager\MunicipalityManager;
+use Stef\LocatieInformatieBundle\Manager\ZipcodeManager;
 use Stef\SlugManipulation\Manipulators\SlugManipulator;
 
 class Correction {
 
     protected $slugifier;
 
+    /**
+     * @var MunicipalityManager
+     */
     protected $municipalityManager;
 
-    function __construct($municipalityManager)
+    /**
+     * @var ZipcodeManager
+     */
+    protected $zipCodeManager;
+
+    /**
+     * @var CityManager
+     */
+    protected $cityManager;
+
+    function __construct()
     {
         $this->slugifier = new SlugManipulator();
+    }
+
+    /**
+     * @param MunicipalityManager $municipalityManager
+     */
+    public function setMunicipalityManager($municipalityManager)
+    {
         $this->municipalityManager = $municipalityManager;
+    }
+
+    /**
+     * @param ZipcodeManager $zipCodeManager
+     */
+    public function setZipCodeManager($zipCodeManager)
+    {
+        $this->zipCodeManager = $zipCodeManager;
+    }
+
+    /**
+     * @param CityManager $cityManager
+     */
+    public function setCityManager($cityManager)
+    {
+        $this->cityManager = $cityManager;
     }
 
 
@@ -59,6 +99,10 @@ class Correction {
         } elseif ($location instanceof City) {
             $municipality = $this->municipalityManager->getRepository()->findOneBy(['province_code' => $provinceCode, 'title' => $postcode->getMunicipality()]);
             $location->setMunicipality($municipality);
+        } elseif ($location instanceof ZipCode) {
+            $municipality = $this->municipalityManager->getRepository()->findOneBySlug('gem-' . $this->slugifier->manipulate($postcode->getMunicipality() . '-' . $provinceCode));
+            $city = $this->cityManager->getRepository()->findOneBy(['municipality' => $municipality, 'title' => $postcode->getCity()]);
+            $location->setCity($city);
         }
 
         return $location;
