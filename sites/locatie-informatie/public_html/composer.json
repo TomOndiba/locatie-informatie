@@ -6,6 +6,8 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
+    "prefer-stable": true,
+    "minimum-stability" : "dev",
     "repositories": [
         {
             "type": "package",
@@ -52,6 +54,8 @@
         "egeloen/google-map-bundle": "~2.2",
         "frequence-web/calendr-bundle": "~1.0",
         "whiteoctober/breadcrumbs-bundle": "~1.0",
+        "leezy/pheanstalk-bundle": "~3.0@dev",
+      "treehouselabs/worker-bundle": "~1.0",
         "stef/crud-contract": "dev-master",
         "stef/manipulation": "dev-master",
         "stef/slug-manipulation": "dev-master",
@@ -59,7 +63,6 @@
         "stef/generate-fixtures-bundle": "dev-master",
         "stef/simple-cms-bundle": "dev-master",
         "stef/redirect-trailing-slash-bundle": "dev-master"
-
     },
     "scripts": {
       "post-root-package-install": [

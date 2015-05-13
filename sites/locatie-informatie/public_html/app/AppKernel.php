@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             /*Braincrafted */
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+            /* TreeHouseLabs */
+            new TreeHouse\WorkerBundle\TreeHouseWorkerBundle(),
             /* FOS*/
             new FOS\UserBundle\FOSUserBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),

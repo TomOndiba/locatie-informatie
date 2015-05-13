@@ -1,89 +1,56 @@
 <?php
 namespace Stef\LocatieInformatieBundle\Conversion;
 
-use Doctrine\ORM\QueryBuilder;
 use Stef\LocatieInformatieBundle\Entity\Municipality;
 use Stef\LocatieInformatieBundle\Entity\Postcode;
-use Stef\LocatieInformatieBundle\Manager\MunicipalityManager;
-use Stef\LocatieInformatieBundle\Manager\PostcodeManager;
-use Stef\SlugManipulation\Manipulators\SlugManipulator;
 
 class MunicipalityConverter extends AbstractConverter
 {
     /**
-     * @var PostcodeManager
+     * Check and create a new City if its not existing
+     * @param Postcode $postcode
+     *
+     * @return bool
      */
-    protected $postcodeManager;
-
-    /**
-     * @var MunicipalityManager
-     */
-    protected $municipalityManager;
-
-    /**
-     * @var SlugManipulator
-     */
-    protected $slugifier;
-
-    function __construct(PostcodeManager $postcodeManager, MunicipalityManager $municipalityManager, SlugManipulator $slugifier)
+    protected function checkAndCreateNewLocation(Postcode $postcode)
     {
-        $this->postcodeManager = $postcodeManager;
-        $this->municipalityManager = $municipalityManager;
-        $this->slugifier = $slugifier;
-    }
+        $correction = new Correction();
+        $correction->setMunicipalityManager($this->municipalityManager);
+        $correction->setZipCodeManager($this->zipcodeManager);
+        $correction->setCityManager($this->cityManager);
 
-    public function convert()
-    {
-        /**
-         * @var $qbPostcode QueryBuilder
-         */
-        $qbPostcode = $this->postcodeManager->getRepository()->createQueryBuilder('p');
-
-        $this->doStuff($qbPostcode->select('p')->groupBy('p.municipality')->getQuery()->getResult());
-        $this->doStuff($qbPostcode->select('p')->groupBy('p.municipalityId')->getQuery()->getResult());
-    }
-
-    protected function doStuff($entities)
-    {
-        $correction = new Correction($this->municipalityManager);
-
-        /**
-         * @var $p Postcode
-         */
-        foreach ($entities as $p) {
-
-            if (null != $this->municipalityManager->getRepository()->findOneBy(['provinceCode' => $p->getProvinceCode(), 'title' => $p->getMunicipality()])) {
-                continue;
-            }
-
-            $slug = $this->slugifier->manipulate('gem-' . $p->getMunicipality() . '-' . $p->getProvinceCode());
-
-            if (null != $this->municipalityManager->getRepository()->findOneBySlug($slug)) {
-                continue;
-            }
-
-            /**
-             * @var $m Municipality
-             */
-            $m = $this->copyFields(new Municipality(), $p);
-            $m->setTitle($p->getMunicipality());
-
-            $m->setSlug($slug);
-            $m->setSourceLocationTypeId($p->getMunicipalityId());
-            $m->setProvinceCode($p->getProvinceCode());
-
-            $m = $correction->correct($m, $p);
-
-
-            if (null != $this->municipalityManager->getRepository()->findOneBy(['provinceCode' => $m->getProvinceCode(), 'title' => $m->getMunicipality()])) {
-                continue;
-            }
-
-            if (null != $this->municipalityManager->getRepository()->findOneBySlug($m->getSlug())) {
-                continue;
-            }
-
-            $this->municipalityManager->persistAndFlush($m);
+        if (null != $this->municipalityManager->getRepository()->findOneBy(['province_code' => $postcode->getProvinceCode(), 'title' => $postcode->getMunicipality()])) {
+            return false;
         }
+
+        $slug = $this->slugifier->manipulate('gem-' . $postcode->getMunicipality() . '-' . $postcode->getProvinceCode());
+
+        if (null != $this->municipalityManager->getRepository()->findOneBySlug($slug)) {
+            return false;
+        }
+
+        /**
+         * @var $m Municipality
+         */
+        $m = $this->copyFields(new Municipality(), $postcode);
+        $m->setTitle($postcode->getMunicipality());
+
+        $m->setSlug($slug);
+        $m->setSourceLocationTypeId($postcode->getMunicipalityId());
+        $m->setProvinceCode($postcode->getProvinceCode());
+
+        $m = $correction->correct($m, $postcode);
+
+        if (null != $this->municipalityManager->getRepository()->findOneBy(['province_code' => $m->getProvinceCode(), 'title' => $m->getTitle()])) {
+            return false;
+        }
+
+        if (null != $this->municipalityManager->getRepository()->findOneBySlug($m->getSlug())) {
+            return false;
+        }
+
+        $this->municipalityManager->persistAndFlush($m);
+
+        return true;
     }
 }

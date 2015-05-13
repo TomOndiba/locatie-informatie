@@ -5,7 +5,7 @@ namespace Stef\LocatieInformatieBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Postcode
+ * Postcode: Based on orignal postcode DB. Not further used in application.
  *
  * @ORM\Table()
  * @ORM\Entity
