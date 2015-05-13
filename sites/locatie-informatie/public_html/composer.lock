@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6a2916a93c91394c4f14aa35ba434c2f",
+    "hash": "ca46fb5e5a0c5df6771d04c1347a010d",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -1721,6 +1721,66 @@
             "time": "2014-12-12 05:04:05"
         },
         {
+            "name": "leezy/pheanstalk-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/armetiz/LeezyPheanstalkBundle.git",
+                "reference": "38cc76970511c3a513b25e4774feecd4f6e2c774"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/armetiz/LeezyPheanstalkBundle/zipball/38cc76970511c3a513b25e4774feecd4f6e2c774",
+                "reference": "38cc76970511c3a513b25e4774feecd4f6e2c774",
+                "shasum": ""
+            },
+            "require": {
+                "pda/pheanstalk": "~3.0",
+                "php": ">=5.5.9",
+                "psr/log": "~1.0",
+                "symfony/console": "~2.3",
+                "symfony/framework-bundle": "~2.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "phpunit/phpunit-mock-objects": "2.3.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Leezy\\PheanstalkBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Tourlourat",
+                    "email": "thomas@tourlourat.com",
+                    "homepage": "http://www.armetiz.info"
+                }
+            ],
+            "description": "The LeezyPheanstalkBundle is a Symfony2 Bundle that provides a command line interface for manage the Beanstalkd workqueue server & a pheanstalk integration.",
+            "homepage": "https://github.com/armetiz/LeezyPheanstalkBundle",
+            "keywords": [
+                "asynchronous",
+                "beanstalkd",
+                "bundle",
+                "messaging",
+                "pheanstalk",
+                "queueing",
+                "symfony"
+            ],
+            "time": "2015-04-21 09:53:41"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.13.1",
             "source": {
@@ -1846,6 +1906,56 @@
                 "test"
             ],
             "time": "2014-02-05 22:35:38"
+        },
+        {
+            "name": "pda/pheanstalk",
+            "version": "v3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pda/pheanstalk.git",
+                "reference": "2078587884faf43fc00976b152b2dde0b5e3830e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pda/pheanstalk/zipball/2078587884faf43fc00976b152b2dde0b5e3830e",
+                "reference": "2078587884faf43fc00976b152b2dde0b5e3830e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pheanstalk\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Annesley",
+                    "email": "paul@annesley.cc",
+                    "homepage": "http://paul.annesley.cc/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP client for beanstalkd queue",
+            "homepage": "https://github.com/pda/pheanstalk",
+            "keywords": [
+                "beanstalkd"
+            ],
+            "time": "2014-11-08 20:00:00"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -3620,6 +3730,58 @@
             "time": "2015-04-01 16:55:26"
         },
         {
+            "name": "treehouselabs/worker-bundle",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/treehouselabs/TreeHouseWorkerBundle.git",
+                "reference": "e7d487320c8f8a613e5ce8d9441f7ce3434954fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/treehouselabs/TreeHouseWorkerBundle/zipball/e7d487320c8f8a613e5ce8d9441f7ce3434954fa",
+                "reference": "e7d487320c8f8a613e5ce8d9441f7ce3434954fa",
+                "shasum": ""
+            },
+            "require": {
+                "pda/pheanstalk": "~3.0",
+                "php": ">=5.5",
+                "symfony/symfony": "~2.6"
+            },
+            "require-dev": {
+                "doctrine/orm": "~2.3",
+                "phpunit/phpunit": "~4.5",
+                "phpunit/phpunit-mock-objects": "2.3.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "TreeHouse\\WorkerBundle\\": "src/TreeHouse/WorkerBundle/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Peter Kruithof",
+                    "email": "peter@treehouse.nl"
+                },
+                {
+                    "name": "Jeroen Fiege",
+                    "email": "jeroen@treehouse.nl"
+                }
+            ],
+            "description": "Adds worker functionality to a Symfony2 project, using Beanstalkd as the message queue",
+            "keywords": [
+                "beanstalk",
+                "beanstalkd",
+                "worker"
+            ],
+            "time": "2015-04-24 08:36:04"
+        },
+        {
             "name": "twbs/bootstrap",
             "version": "v3.0.3",
             "source": {
@@ -3872,10 +4034,11 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "friendsofsymfony/user-bundle": 20,
         "jms/serializer-bundle": 20,
+        "leezy/pheanstalk-bundle": 20,
         "stef/crud-contract": 20,
         "stef/manipulation": 20,
         "stef/slug-manipulation": 20,
@@ -3884,7 +4047,7 @@
         "stef/simple-cms-bundle": 20,
         "stef/redirect-trailing-slash-bundle": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.5"

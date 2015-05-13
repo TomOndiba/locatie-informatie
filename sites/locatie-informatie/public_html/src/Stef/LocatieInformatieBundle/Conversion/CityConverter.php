@@ -1,99 +1,58 @@
 <?php
 namespace Stef\LocatieInformatieBundle\Conversion;
 
-use Doctrine\ORM\QueryBuilder;
 use Stef\LocatieInformatieBundle\Entity\City;
 use Stef\LocatieInformatieBundle\Entity\Postcode;
-use Stef\LocatieInformatieBundle\Manager\CityManager;
-use Stef\LocatieInformatieBundle\Manager\MunicipalityManager;
-use Stef\LocatieInformatieBundle\Manager\PostcodeManager;
-use Stef\SlugManipulation\Manipulators\SlugManipulator;
 
 class CityConverter extends AbstractConverter
 {
     /**
-     * @var PostcodeManager
+     * Check and create a new City if its not existing
+     * @param Postcode $postcode
+     *
+     * @return bool
      */
-    protected $postcodeManager;
-
-    /**
-     * @var MunicipalityManager
-     */
-    protected $municipalityManager;
-
-    /**
-     * @var CityManager
-     */
-    protected $cityManager;
-
-    /**
-     * @var SlugManipulator
-     */
-    protected $slugifier;
-
-    function __construct(PostcodeManager $postcodeManager, MunicipalityManager $municipalityManager, CityManager $cityManager,SlugManipulator $slugifier)
+    protected function checkAndCreateNewLocation(Postcode $postcode)
     {
-        $this->postcodeManager = $postcodeManager;
-        $this->municipalityManager = $municipalityManager;
-        $this->cityManager = $cityManager;
-        $this->slugifier = $slugifier;
-    }
+        $correction = new Correction();
+        $correction->setMunicipalityManager($this->municipalityManager);
+        $correction->setZipCodeManager($this->zipcodeManager);
+        $correction->setCityManager($this->cityManager);
 
-    public function convert()
-    {
-        /**
-         * @var $qbPostcode QueryBuilder
-         */
-        $qbPostcode = $this->postcodeManager->getRepository()->createQueryBuilder('p');
+        $slug = $this->slugifier->manipulate($postcode->getCity());
+        $municipality = $this->municipalityManager->getRepository()->findOneByTitle($postcode->getMunicipality());
 
-        $this->doStuff($qbPostcode->select('p')->groupBy('p.city')->getQuery()->getResult(), 'city');
-        $this->doStuff($qbPostcode->select('p')->groupBy('p.cityId')->getQuery()->getResult(), 'id');
-    }
+        $entity = $this->cityManager->getRepository()->findOneBy(['municipality' => $municipality, 'title' => $postcode->getCity()]);
 
-    protected function doStuff($entities, $type)
-    {
-        $correction = new Correction($this->municipalityManager);
+        if ($entity != null) {
+            return false;
+        }
 
-        /**
-         * @var $p Postcode
-         */
-        foreach ($entities as $p) {
-            if ($type === 'id') {
-                $entity = $this->cityManager->getRepository()->findOneBySourceLocationTypeId($p->getCityId());
-            } else {
-                $entity = $this->cityManager->getRepository()->findOneByTitle($p->getCity());
-            }
+        $entity = $this->cityManager->getRepository()->findOneBySlug($slug);
 
-            if ($entity != null) {
-                continue;
-            }
+        if ($entity != null) {
+            $slug = $this->slugifier->manipulate($postcode->getCity() . '-' . $postcode->getProvinceCode());
 
-            $slug = $this->slugifier->manipulate($p->getCity());
-            var_dump($p->getCity() . '   -    ' . $slug . '   -   ' . $p->getId());
             $entity = $this->cityManager->getRepository()->findOneBySlug($slug);
 
             if ($entity != null) {
-                $slug = $this->slugifier->manipulate($p->getCity() . '-' . $p->getProvinceCode());
-
-                $entity = $this->cityManager->getRepository()->findOneBySlug($slug);
-
-                if ($entity != null) {
-                    continue;
-                }
+                return false;
             }
-
-            /**
-             * @var $c City
-             */
-            $c = $this->copyFields(new City(), $p);
-            $c->setTitle($p->getCity());
-
-            $c->setSlug($slug);
-            $c->setSourceLocationTypeId($p->getCityId());
-
-            $c = $correction->correct($c, $p);
-
-            $this->cityManager->persistAndFlush($c);
         }
+
+        /**
+         * @var $c City
+         */
+        $c = $this->copyFields(new City(), $postcode);
+        $c->setTitle($postcode->getCity());
+
+        $c->setSlug($slug);
+        $c->setSourceLocationTypeId($postcode->getCityId());
+
+        $c = $correction->correct($c, $postcode);
+
+        $this->cityManager->persistAndFlush($c);
+
+        return true;
     }
 }

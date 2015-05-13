@@ -1,9 +1,6 @@
 <?php
 namespace Stef\LocatieInformatieBundle\Command;
 
-use Stef\LocatieInformatieBundle\Conversion\CityConverter;
-use Stef\LocatieInformatieBundle\Conversion\MunicipalityConverter;
-use Stef\LocatieInformatieBundle\Conversion\ZipcodeConverter;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -14,7 +11,7 @@ class ConverterCommand extends ContainerAwareCommand
     {
         $this
             ->setName('location:convert')
-            ->setDescription('Convert Locationdata in our own format.')
+            ->setDescription('Convert Locationdata in our own format. Send the data to convert to a messageqeue.')
         ;
     }
 
@@ -25,13 +22,28 @@ class ConverterCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $municipalityConverter = new MunicipalityConverter($this->get('stef_simple_cms.postcode_manager'), $this->get('stef_simple_cms.municipality_manager'), $this->get('stef.slugifier'));
-        $municipalityConverter->convert();
+        $postcodeManager = $this->get('stef_simple_cms.postcode_manager');
+        $qbPostcode = $postcodeManager->getRepository()->createQueryBuilder('p');
+        $queueManager = $this->get('tree_house.worker.queue_manager');
 
-        $cityConverter = new CityConverter($this->get('stef_simple_cms.postcode_manager'), $this->get('stef_simple_cms.municipality_manager'), $this->get('stef_simple_cms.city_manager'), $this->get('stef.slugifier'));
-        $cityConverter->convert();
+        $this->dispatch($qbPostcode->select('p')->groupBy('p.municipality')->getQuery()->getResult(), $queueManager, 'municipality');
+        $this->dispatch($qbPostcode->select('p')->groupBy('p.municipalityId')->getQuery()->getResult(), $queueManager, 'municipality');
 
-        $zipConverter = new ZipcodeConverter($this->get('stef_simple_cms.postcode_manager'), $this->get('stef_simple_cms.municipality_manager'), $this->get('stef_simple_cms.city_manager'), $this->get('stef_simple_cms.zipcode_manager'), $this->get('stef.slugifier'));
-        $zipConverter->convert();
+        $this->dispatch($qbPostcode->select('p')->groupBy('p.city')->getQuery()->getResult(), $queueManager, 'city');
+        $this->dispatch($qbPostcode->select('p')->groupBy('p.cityId')->getQuery()->getResult(), $queueManager, 'city');
+
+        $limit = 500;
+
+        for($page = 0; $page < 1000; $page++) {
+            $entities = $postcodeManager->getRepository()->findBy([], [], $limit, ($page * $limit));
+            $this->dispatch($entities, $queueManager, 'zipcode');
+        }
+    }
+
+    protected function dispatch($entities, $queueManager, $type)
+    {
+        foreach($entities as $entity) {
+            $queueManager->add('convert.locations', [$entity->getId(), $type]);
+        }
     }
 }

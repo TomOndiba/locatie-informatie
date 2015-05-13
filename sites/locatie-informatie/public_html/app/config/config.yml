@@ -123,3 +123,8 @@ ivory_google_map:
             border: "1px solid #000"
             background-color: "#fff"
         language: en
+tree_house_worker:
+  queue:
+    server: localhost
+tree_house_worker:
+  pheanstalk: leezy.pheanstalk

@@ -7,6 +7,10 @@ services:
         class: Stef\LocatieInformatieBundle\Manager\ProvinceManager
         arguments: ["@doctrine.orm.entity_manager"]
 
+    stef_simple_cms.zipcode_manager:
+        class: Stef\LocatieInformatieBundle\Manager\ZipcodeManager
+        arguments: ["@doctrine.orm.entity_manager"]
+
     stef_simple_cms.city_manager:
         class: Stef\LocatieInformatieBundle\Manager\CityManager
         arguments: ["@doctrine.orm.entity_manager"]
@@ -22,6 +26,13 @@ services:
             - [addNewMapping, ["Province", "StefLocatieInformatieBundle", 'Stef\LocatieInformatieBundle\Entity', "@stef_simple_cms.province_manager"]]
             - [addNewMapping, ["Municipality", "StefLocatieInformatieBundle", 'Stef\LocatieInformatieBundle\Entity', "@stef_simple_cms.municipality_manager"]]
             - [addNewMapping, ["City", "StefLocatieInformatieBundle", 'Stef\LocatieInformatieBundle\Entity', "@stef_simple_cms.city_manager"]]
+            - [addNewMapping, ["ZipCode", "StefLocatieInformatieBundle", 'Stef\LocatieInformatieBundle\Entity', "@stef_simple_cms.zipcode_manager"]]
 
     stef_simple_cms.form_options:
         class: Stef\SimpleCmsBundle\Form\FormOptions
+
+    executor.convert_locations:
+        class: Stef\LocatieInformatieBundle\Executor\ConvertExecutor
+        arguments: ["@stef_simple_cms.postcode_manager", "@stef_simple_cms.municipality_manager", "@stef_simple_cms.city_manager", "@stef_simple_cms.zipcode_manager"]
+        tags:
+          - { name: tree_house.worker.executor }

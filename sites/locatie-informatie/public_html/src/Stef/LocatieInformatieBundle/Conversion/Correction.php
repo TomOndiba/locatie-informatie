@@ -1,7 +1,6 @@
 <?php
 namespace Stef\LocatieInformatieBundle\Conversion;
 
-
 use Stef\LocatieInformatieBundle\Entity\City;
 use Stef\LocatieInformatieBundle\Entity\Postcode;
 use Stef\LocatieInformatieBundle\Entity\Location;
