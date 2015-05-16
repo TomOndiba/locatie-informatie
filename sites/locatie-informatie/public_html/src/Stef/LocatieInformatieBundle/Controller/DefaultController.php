@@ -88,6 +88,10 @@ class DefaultController extends BaseController
         $page->setTitle(str_replace(['%NUMBER%', '%CHAR%'], [count($list), strtoupper($char)], $page->getTitle()));
         $page->setRobotsIndex(false);
 
+        if (count($list) > 75) {
+            $page->setRobotsIndex(true);
+        }
+
         return $this->render('StefLocatieInformatieBundle:IndexPages:list.html.twig', [
             'items' => $list,
             'char' => $char,
