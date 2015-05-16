@@ -23,6 +23,12 @@ class DefaultController extends BaseController
         $manager = $this->getCityManager();
         $params = new ParameterBag();
 
+        $params->set('pageTitleChar', 'Plaatsnamen in Nederland - Overzicht %CHAR%');
+        $params->set('pageTitleNoChar', 'Plaatsen in Nederland');
+
+        $params->set('pageDescriptionChar', '%NUMBER% plaatsen in Nederland met de letter %CHAR%. Bekijk hier ons overzicht Nederlandse plaatsen. Wij hebben er %NUMBER% verzameld! Bekijk hier ons overzicht met %NUMBER% plaatsen.');
+        $params->set('pageDescriptionNoChar', 'Bekijk hier ons overzicht met Nederlandse plaatsen. Wij hebben %NUMBER% plaatsnamen in ons overzicht!');
+
         return $this->progressIndexPages($request, $manager, $char, $params);
     }
 
@@ -31,6 +37,12 @@ class DefaultController extends BaseController
         $manager = $this->getMunicipalityManager();
         $params = new ParameterBag();
 
+        $params->set('pageTitleChar', 'Gemeenten in Nederland - Overzicht %CHAR%');
+        $params->set('pageTitleNoChar', 'Gemeenten in Nederland');
+
+        $params->set('pageDescriptionChar', '%NUMBER% Nederlandse gemeenten in met de letter %CHAR%. Wij hebben gemeenten %NUMBER% verzameld! Bekijk hier ons overzicht met %NUMBER% gemeenten met de letter %CHAR%.');
+        $params->set('pageDescriptionNoChar', 'Bekijk hier ons overzicht met Nederlandse gemeenten. Wij hebben %NUMBER% gemeenten in ons overzicht!');
+
         return $this->progressIndexPages($request, $manager, $char, $params);
     }
 
@@ -38,6 +50,12 @@ class DefaultController extends BaseController
     {
         $manager = $this->getProvinceManager();
         $params = new ParameterBag();
+
+        $params->set('pageTitleChar', 'Provincies in Nederland - Overzicht %CHAR%');
+        $params->set('pageTitleNoChar', 'Provincies in Nederland');
+
+        $params->set('pageDescriptionChar', '%NUMBER% provincies in Nederland beginnen met de letter %CHAR%! Uiteraard kennen wij alle twaalf provincies op ons duimpje.');
+        $params->set('pageDescriptionNoChar', 'Bekijk hier ons overzicht met Nederlandse provincies. Ontdek alle twaalf de Nederlandse provincies vandaag nog!');
 
         return $this->progressIndexPages($request, $manager, $char, $params);
     }
@@ -55,6 +73,17 @@ class DefaultController extends BaseController
         $list = $manager->getListByFirstLetter($char);
 
         $page = new Page();
+
+        if ($char == null) {
+            $page->setTitle($params->get('pageTitleNoChar'));
+            $page->setDescription($params->get('pageDescriptionNoChar'));
+        } else {
+            $page->setTitle($params->get('pageTitleChar'));
+            $page->setDescription($params->get('pageDescriptionChar'));
+        }
+
+        $page->setDescription(str_replace(['%NUMBER%', '%CHAR%'], [count($list), strtoupper($char)], $page->getDescription()));
+        $page->setTitle(str_replace(['%NUMBER%', '%CHAR%'], [count($list), strtoupper($char)], $page->getTitle()));
         $page->setRobotsIndex(false);
 
         return $this->render('StefLocatieInformatieBundle:IndexPages:list.html.twig', [
