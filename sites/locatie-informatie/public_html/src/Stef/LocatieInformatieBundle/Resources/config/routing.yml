@@ -33,3 +33,7 @@ stef_locatie_informatie_index_municipalitie:
 stef_locatie_informatie_index_provinces:
     path:     /provincies-in-nederland
     defaults: { _controller: StefLocatieInformatieBundle:Default:indexProvinces }
+
+stef_locatie_informatie_locaties_or_lokaties:
+    path:     /locatie-of-lokatie
+    defaults: { _controller: StefLocatieInformatieBundle:StaticPage:locatieLokatie }
