@@ -13,6 +13,8 @@ class DefaultController extends BaseController
     {
         $page = new Page();
 
+        $page->setTitle('Locatie Informatie | Informatie over elke Locatie');
+
         return $this->render('StefLocatieInformatieBundle:Index:index.html.twig', [
             'page' => $page
         ]);
