@@ -1,0 +1,43 @@
+{% extends "StefLocatieInformatieBundle::freelayout.html.twig" %}
+
+{% block htmlbody %}
+    <div id="ww">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 centered">
+                    <h1>Informatie over elke locatie</h1>
+                    <p>Wij bieden een overzicht van alle plaatsen en gemeenten in Nederland, maar ook een overzicht van alle postcodes. Deze overzichten kan je daarom makkelijk gebruiken om even snel een postcode op te zoeken of snel zien welke plaatsnamen er precies in een bepaalde gemeente vallen. Handig!</p>
+
+                </div>
+
+                <div class="col-lg-8 col-lg-offset-2 centered">
+                    <h2>Achtergronden bij de plaatsen</h2>
+                    <p>Elke plaats of gemeente heeft wel een leuk kroegje, fraaie bioscoop of een parkje dat iemand gezien moet hebben. Help ons mee om jouw eigen stad te promoten en jouw favoriete plekjes met de wereld te delen!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pt">
+        <div class="row mt centered">
+            <div class="col-lg-4">
+                <a class="green" href="{{ path('stef_locatie_informatie_index_provinces_by_char', {'char': 'a'}) }}" title="Overzicht provincies in Nederland">
+                    <i class="glyphicon glyphicon-globe"></i>
+                    <p>Overzicht provincies</p>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a class="green" href="{{ path('stef_locatie_informatie_index_municipalities_by_char', {'char': 'a'}) }}" title="Overzicht gemeenten in Nederland">
+                    <i class="glyphicon glyphicon-globe"></i>
+                    <p>Overzicht gemeenten</p>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a class="green" href="{{ path('stef_locatie_informatie_index_cities_by_char', {'char': 'a'}) }}" title="Overzicht plaatsen in Nederland">
+                    <i class="glyphicon glyphicon-globe"></i>
+                    <p>Overzicht plaatsen</p>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

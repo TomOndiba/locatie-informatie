@@ -47,10 +47,25 @@ abstract class LocationManager extends AbstractObjectManager
 
         if (empty($entity->getLocationCode())) {
             $code = $this->createLocationCode($entity);
-            var_dump('$code: ' . $code);
             $entity->setLocationCode($code);
         }
 
         parent::persist($entity);
+    }
+
+    public function getListByFirstLetter($letter)
+    {
+        if ($letter === 'apostrof') {
+            $letter = "'";
+        }
+
+        $repo = $this->om->getRepository($this->repoName);
+
+        $query = $repo->createQueryBuilder('c')
+            ->where('c.title LIKE :title')
+            ->setParameter('title', $letter . '%')
+            ->getQuery();
+
+        return $query->getResult();
     }
 }

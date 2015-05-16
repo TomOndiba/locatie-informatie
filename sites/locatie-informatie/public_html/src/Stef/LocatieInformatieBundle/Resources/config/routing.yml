@@ -1,3 +1,35 @@
 stef_locatie_informatie_homepage:
-    path:     /hello/{name}
+    path:     /
     defaults: { _controller: StefLocatieInformatieBundle:Default:index }
+
+stef_locatie_informatie_index_cities_by_char:
+    path:     /plaatsen-in-nederland/{char}
+    defaults: { _controller: StefLocatieInformatieBundle:Default:indexCities }
+
+stef_locatie_informatie_index_municipalities_by_char:
+    path:     /gemeenten-in-nederland/{char}
+    defaults: { _controller: StefLocatieInformatieBundle:Default:indexMunicipalities }
+
+stef_locatie_informatie_index_municipalities_by_char:
+    path:     /gemeenten-in-nederland/{char}
+    defaults: { _controller: StefLocatieInformatieBundle:Default:indexMunicipalities }
+
+stef_locatie_informatie_index_provinces_by_char:
+    path:     /provincies-in-nederland/{char}
+    defaults: { _controller: StefLocatieInformatieBundle:Default:indexProvinces }
+
+stef_locatie_informatie_index_cities:
+    path:     /plaatsen-in-nederland
+    defaults: { _controller: StefLocatieInformatieBundle:Default:indexCities }
+
+stef_locatie_informatie_index_municipalities:
+    path:     /gemeenten-in-nederland
+    defaults: { _controller: StefLocatieInformatieBundle:Default:indexMunicipalities }
+
+stef_locatie_informatie_index_municipalitie:
+    path:     /gemeenten-in-nederland
+    defaults: { _controller: StefLocatieInformatieBundle:Default:indexMunicipalities }
+
+stef_locatie_informatie_index_provinces:
+    path:     /provincies-in-nederland
+    defaults: { _controller: StefLocatieInformatieBundle:Default:indexProvinces }
