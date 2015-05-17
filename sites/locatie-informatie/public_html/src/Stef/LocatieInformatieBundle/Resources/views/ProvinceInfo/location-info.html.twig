@@ -1,0 +1,19 @@
+<h2>Overige Locatie Informatie</h2>
+<p>Binnen onze database hebben wij nog een en andere kunnen vinden over de provincie {{ province.title }}. Hieronder geven wij een kleine greep.</p>
+
+<dl class="dl-horizontal">
+    <dt>Titel</dt>
+    <dd>{{ province.title }}</dd>
+    <dt>Locatietype</dt>
+    <dd>{{ province.locationType }}</dd>
+    <dt>Slug</dt>
+    <dd>{{ province.slug }}</dd>
+    <dt>ID</dt>
+    <dd>{{ province.id }}</dd>
+    <dt>Locatiecode</dt>
+    <dd>{{ province.locationCode }}</dd>
+    <dt>Aantal gemeenten</dt>
+    <dd><a href="{{ path('stef_locatie_informatie_index_municipalities_by_province', {'provinceSlug' : province.slug }) }}" title="Gemeenten {{ province.title }}">{{ province.municipalities|length }}</a></dd>
+    <dt>Laatse wijziging</dt>
+    <dd>{{ province.modified|date('Y-m-d H:i:s') }}</dd>
+</dl>

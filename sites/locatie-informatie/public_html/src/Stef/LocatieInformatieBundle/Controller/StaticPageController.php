@@ -25,6 +25,33 @@ class StaticPageController extends BaseController
         ]);
     }
 
+    public function provinceAction($provinceSlug = null)
+    {
+        $provinceManager = $this->getProvinceManager();
+        $province = $provinceManager->read($provinceSlug);
+
+        $page = new Page();
+        $page->setRobotsIndex(false);
+        $page->setRobotsFollow(true);
+
+        if ($provinceSlug == null && $province == null) {
+            $page->setTitle('Provincies in Nederland');
+            $page->setDescription('Een volledig overzicht van Nederlandse provincies! Bekijk hier wat alle twaalf Nederlandse provincies kunnen bieden');
+        } else {
+            $page->setTitle('Provincie ' . $province->getTitle());
+            $page->setDescription('Bekijk hier alles over de provincie ' . $province->getTitle() . '! Met ' . count($province->getMunicipalities()) . ' gemeenten is er altijd wat te doen in ' . $province->getTitle());
+        }
+
+        if ($province != null && $province->getProvinceCode() == 'ZH') {
+            $page->setRobotsIndex(true);
+        }
+
+        return $this->render('StefLocatieInformatieBundle:ProvinceInfo:show.html.twig', [
+            'page' => $page,
+            'province' => $province,
+        ]);
+    }
+
     /**
      * @return string
      */
