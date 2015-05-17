@@ -20,22 +20,28 @@
 
     <div class="container pt">
         <div class="row mt centered">
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <a class="green" href="{{ path('stef_locatie_informatie_index_provinces_by_char', {'char': 'a'}) }}" title="Overzicht provincies in Nederland">
                     <i class="glyphicon glyphicon-globe"></i>
                     <p>Overzicht provincies</p>
                 </a>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <a class="green" href="{{ path('stef_locatie_informatie_index_municipalities_by_char', {'char': 'a'}) }}" title="Overzicht gemeenten in Nederland">
                     <i class="glyphicon glyphicon-globe"></i>
                     <p>Overzicht gemeenten</p>
                 </a>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <a class="green" href="{{ path('stef_locatie_informatie_index_cities_by_char', {'char': 'a'}) }}" title="Overzicht plaatsen in Nederland">
                     <i class="glyphicon glyphicon-globe"></i>
                     <p>Overzicht plaatsen</p>
+                </a>
+            </div>
+            <div class="col-lg-3">
+                <a class="green" href="{{ path('stef_locatie_informatie_index_municipalities_by_province', {'provinceSlug': 'zuid-holland'}) }}" title="Overzicht gemeenten per provincie">
+                    <i class="glyphicon glyphicon-globe"></i>
+                    <p>Gemeenten per provincie</p>
                 </a>
             </div>
         </div>

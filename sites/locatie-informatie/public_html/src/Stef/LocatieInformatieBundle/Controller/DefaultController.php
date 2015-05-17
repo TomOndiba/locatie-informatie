@@ -61,7 +61,7 @@ class DefaultController extends BaseController
             $page->setTitle('Overzicht Nederlandse gemeenten per Provincie');
             $page->setDescription('Bekijk hier het volledige overzicht van alle Nederlandse gemeenten! Wij hebben het overzicht gesplitst per provincie.');
         } else {
-            $page->setTitle('Nederlandse gemeenten - ' . $province->getTitle());
+            $page->setTitle('Nederlandse gemeenten in ' . $province->getTitle());
             $page->setDescription('Bekijk hier het overzicht van ' . count($municipalities) . ' Nederlandse gemeenten uit de provincie ' . $province->getTitle() . '! Of kijk naar een ander overzicht als je niet op zoek bent naar ' . $province->getTitle());
         }
 
