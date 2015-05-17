@@ -18,6 +18,7 @@ class CityConverter extends AbstractConverter
         $correction->setMunicipalityManager($this->municipalityManager);
         $correction->setZipCodeManager($this->zipcodeManager);
         $correction->setCityManager($this->cityManager);
+        $correction->setProvinceManager($this->provinceManager);
 
         $slug = $this->slugifier->manipulate($postcode->getCity());
         $municipality = $this->municipalityManager->getRepository()->findOneByTitle($postcode->getMunicipality());
@@ -48,10 +49,15 @@ class CityConverter extends AbstractConverter
 
         $c->setSlug($slug);
         $c->setSourceLocationTypeId($postcode->getCityId());
+        $c->setMunicipality($municipality);
 
         $c = $correction->correct($c, $postcode);
 
-        $this->cityManager->persistAndFlush($c);
+        if ($municipality != null) {
+            $this->cityManager->persistAndFlush($c);
+        } else {
+            return false;
+        }
 
         return true;
     }
