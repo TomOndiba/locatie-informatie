@@ -48,6 +48,37 @@ class DefaultController extends BaseController
         return $this->progressIndexPages($request, $manager, $char, $params);
     }
 
+    public function indexMunicipalitiesByProvinceAction(Request $request, $provinceSlug = null)
+    {
+        $provinceManager = $this->getProvinceManager();
+        $municipalityManager = $this->getMunicipalityManager();
+
+        $province = $provinceManager->read($provinceSlug);
+        $municipalities = $municipalityManager->findByProvince($province);
+
+        $page = new Page();
+        if ($province == null) {
+            $page->setTitle('Overzicht Nederlandse gemeenten per Provincie');
+            $page->setDescription('Bekijk hier het volledige overzicht van alle Nederlandse gemeenten! Wij hebben het overzicht gesplitst per provincie.');
+        } else {
+            $page->setTitle('Nederlandse gemeenten - ' . $province->getTitle());
+            $page->setDescription('Bekijk hier het overzicht van ' . count($municipalities) . ' Nederlandse gemeenten uit de provincie ' . $province->getTitle() . '! Of kijk naar een ander overzicht als je niet op zoek bent naar ' . $province->getTitle());
+        }
+
+        $page->setRobotsIndex(false);
+
+        if (count($municipalities) > 50) {
+            $page->setRobotsIndex(true);
+        }
+
+        return $this->render('StefLocatieInformatieBundle:IndexPages:list.html.twig', [
+            'items' => $municipalities,
+            'province' => $province,
+            'type' => 'province',
+            'page' => $page,
+        ]);
+    }
+
     public function indexProvincesAction(Request $request, $char = null)
     {
         $manager = $this->getProvinceManager();
@@ -61,6 +92,7 @@ class DefaultController extends BaseController
 
         return $this->progressIndexPages($request, $manager, $char, $params);
     }
+
 
     protected function progressIndexPages(Request $request, LocationManager $manager, $char = null, ParameterBag $params)
     {
@@ -96,6 +128,7 @@ class DefaultController extends BaseController
             'items' => $list,
             'char' => $char,
             'route' => $request->get('_route'),
+            'type' => 'char',
             'page' => $page,
         ]);
     }

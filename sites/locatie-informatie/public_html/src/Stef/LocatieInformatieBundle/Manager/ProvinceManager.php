@@ -3,6 +3,7 @@
 namespace Stef\LocatieInformatieBundle\Manager;
 
 use Doctrine\Entity;
+use Stef\LocatieInformatieBundle\Entity\Province;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 class ProvinceManager extends LocationManager
@@ -29,7 +30,7 @@ class ProvinceManager extends LocationManager
 
     /**
      * @param $key
-     * @return mixed
+     * @return Province
      */
     public function read($key)
     {
