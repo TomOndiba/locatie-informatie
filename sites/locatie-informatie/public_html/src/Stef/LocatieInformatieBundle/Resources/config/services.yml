@@ -42,6 +42,6 @@ services:
 
     executor.convert_locations:
         class: Stef\LocatieInformatieBundle\Executor\ConvertExecutor
-        arguments: ["@stef_simple_cms.postcode_manager", "@stef_simple_cms.municipality_manager", "@stef_simple_cms.city_manager", "@stef_simple_cms.zipcode_manager"]
+        arguments: ["@stef_simple_cms.postcode_manager", "@stef_simple_cms.province_manager", "@stef_simple_cms.municipality_manager", "@stef_simple_cms.city_manager", "@stef_simple_cms.zipcode_manager"]
         tags:
           - { name: tree_house.worker.executor }
