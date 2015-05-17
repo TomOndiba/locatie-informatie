@@ -39,7 +39,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lat: 0
     lng: 0
     locationCode: PROV00003
-    provinceCode: ZL
+    provinceCode: ZE
     sourceLocationTypeId: 3
     locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
@@ -54,7 +54,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lat: 0
     lng: 0
     locationCode: PROV00004
-    provinceCode: LB
+    provinceCode: LI
     sourceLocationTypeId: 4
     locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
@@ -67,9 +67,9 @@ Stef\LocatieInformatieBundle\Entity\Province:
     rdX: 0
     rdY: 0
     lat: 0
-    lng: 0
+    lng: 0make
     locationCode: PROV00005
-    provinceCode: GL
+    provinceCode: GE
     sourceLocationTypeId: 5
     locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
@@ -114,7 +114,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     lat: 0
     lng: 0
     locationCode: PROV00008
-    provinceCode: FL
+    provinceCode: FR
     sourceLocationTypeId: 8
     locationDetail: unknown
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
