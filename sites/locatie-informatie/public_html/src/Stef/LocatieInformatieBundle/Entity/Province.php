@@ -2,6 +2,7 @@
 
 namespace Stef\LocatieInformatieBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -13,15 +14,23 @@ use Doctrine\ORM\Mapping as ORM;
 class Province extends Location
 {
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Municipality", mappedBy="province")
+     */
+    protected $municipalities;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="province_code", type="string", length=3)
      */
-    protected $province_code;
+    protected $provinceCode;
 
     function __construct()
     {
         $this->locationType = "province";
+        $this->municipalities = new ArrayCollection();
     }
 
     /**
@@ -29,14 +38,30 @@ class Province extends Location
      */
     public function getProvinceCode()
     {
-        return $this->province_code;
+        return $this->provinceCode;
     }
 
     /**
-     * @param string $province_code
+     * @param string $provinceCode
      */
-    public function setProvinceCode($province_code)
+    public function setProvinceCode($provinceCode)
     {
-        $this->province_code = $province_code;
+        $this->provinceCode = $provinceCode;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getMunicipalities()
+    {
+        return $this->municipalities;
+    }
+
+    /**
+     * @param ArrayCollection $municipalities
+     */
+    public function setMunicipalities($municipalities)
+    {
+        $this->municipalities = $municipalities;
     }
 }

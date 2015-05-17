@@ -14,11 +14,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Municipality extends Location
 {
     /**
-     * @var string
+     * @var Province
      *
-     * @ORM\Column(name="province_code", type="string", length=3)
+     * @ORM\ManyToOne(targetEntity="Province", inversedBy="municipalities")
      */
-    protected $province_code;
+    protected $province;
 
     /**
      * @var ArrayCollection
@@ -30,23 +30,7 @@ class Municipality extends Location
     function __construct()
     {
         $this->locationType = "municipality";
-        $this->cities= new ArrayCollection();
-    }
-
-    /**
-     * @return string
-     */
-    public function getProvinceCode()
-    {
-        return $this->province_code;
-    }
-
-    /**
-     * @param string $province_code
-     */
-    public function setProvinceCode($province_code)
-    {
-        $this->province_code = $province_code;
+        $this->cities = new ArrayCollection();
     }
 
     /**
@@ -55,5 +39,21 @@ class Municipality extends Location
     public function getCities()
     {
         return $this->cities;
+    }
+
+    /**
+     * @return Province
+     */
+    public function getProvince()
+    {
+        return $this->province;
+    }
+
+    /**
+     * @param Province $province
+     */
+    public function setProvince($province)
+    {
+        $this->province = $province;
     }
 }
