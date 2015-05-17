@@ -24,6 +24,5 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        #- { path: ^/cms/, role: ROLE_USER }
-        - { path: ^/cms/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/cms/, role: ROLE_USER }
         - { path: ^/app_dev.php/, role: ROLE_ADMIN }
