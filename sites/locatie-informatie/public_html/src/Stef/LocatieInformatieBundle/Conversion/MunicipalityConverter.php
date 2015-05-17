@@ -18,8 +18,13 @@ class MunicipalityConverter extends AbstractConverter
         $correction->setMunicipalityManager($this->municipalityManager);
         $correction->setZipCodeManager($this->zipcodeManager);
         $correction->setCityManager($this->cityManager);
+        $correction->setProvinceManager($this->provinceManager);
 
-        if (null != $this->municipalityManager->getRepository()->findOneBy(['province_code' => $postcode->getProvinceCode(), 'title' => $postcode->getMunicipality()])) {
+        var_dump('PROVINCE CODE :: ' . $postcode->getProvinceCode());
+
+        $province = $this->provinceManager->getRepository()->findOneByProvinceCode($postcode->getProvinceCode());
+
+        if (null != $this->municipalityManager->getRepository()->findOneBy(['province' => $province, 'title' => $postcode->getMunicipality()])) {
             return false;
         }
 
@@ -37,11 +42,10 @@ class MunicipalityConverter extends AbstractConverter
 
         $m->setSlug($slug);
         $m->setSourceLocationTypeId($postcode->getMunicipalityId());
-        $m->setProvinceCode($postcode->getProvinceCode());
 
         $m = $correction->correct($m, $postcode);
 
-        if (null != $this->municipalityManager->getRepository()->findOneBy(['province_code' => $m->getProvinceCode(), 'title' => $m->getTitle()])) {
+        if (null != $this->municipalityManager->getRepository()->findOneBy(['province' => $m->getProvince(), 'title' => $m->getTitle()])) {
             return false;
         }
 

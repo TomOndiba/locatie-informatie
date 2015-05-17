@@ -25,10 +25,9 @@ abstract class LocationManager extends AbstractObjectManager
     protected function createLocationCode($entity)
     {
         if ($entity instanceof City) {
-            var_dump( $entity->getSlug());
-            return 'CITY:' . $entity->getMunicipality()->getProvinceCode() . ':' . strtoupper(str_replace('-', '', $entity->getSlug()));
+            return 'CITY:' . $entity->getMunicipality()->getProvince()->getProvinceCode() . ':' . strtoupper(str_replace('-', '', $entity->getSlug()));
         } elseif ($entity instanceof Municipality) {
-            return 'MUNI:' . $entity->getProvinceCode() . ':' . strtoupper(str_replace('-', '', $entity->getSlug()));
+            return 'MUNI:' . $entity->getProvince()->getProvinceCode() . ':' . strtoupper(str_replace('-', '', $entity->getSlug()));
         } elseif ($entity instanceof ZipCode) {
             return 'ZIP:' . $entity->getPnum() . $entity->getPchar();
         }

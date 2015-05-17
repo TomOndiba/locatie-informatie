@@ -26,9 +26,13 @@ stef_locatie_informatie_index_municipalities:
     path:     /gemeenten-in-nederland
     defaults: { _controller: StefLocatieInformatieBundle:Default:indexMunicipalities }
 
-stef_locatie_informatie_index_municipalitie:
-    path:     /gemeenten-in-nederland
-    defaults: { _controller: StefLocatieInformatieBundle:Default:indexMunicipalities }
+stef_locatie_informatie_index_municipalities_by_province:
+    path:     /gemeenten-per-provincie/{provinceSlug}
+    defaults: { _controller: StefLocatieInformatieBundle:Default:indexMunicipalitiesByProvince }
+
+stef_locatie_informatie_index_municipalities_by_province_indexpage:
+    path:     /gemeenten-per-provincie
+    defaults: { _controller: StefLocatieInformatieBundle:Default:indexMunicipalitiesByProvince }
 
 stef_locatie_informatie_index_provinces:
     path:     /provincies-in-nederland

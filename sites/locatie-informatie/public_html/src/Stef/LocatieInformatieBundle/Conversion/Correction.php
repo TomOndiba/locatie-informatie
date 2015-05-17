@@ -8,11 +8,12 @@ use Stef\LocatieInformatieBundle\Entity\Municipality;
 use Stef\LocatieInformatieBundle\Entity\ZipCode;
 use Stef\LocatieInformatieBundle\Manager\CityManager;
 use Stef\LocatieInformatieBundle\Manager\MunicipalityManager;
+use Stef\LocatieInformatieBundle\Manager\ProvinceManager;
 use Stef\LocatieInformatieBundle\Manager\ZipcodeManager;
 use Stef\SlugManipulation\Manipulators\SlugManipulator;
 
-class Correction {
-
+class Correction
+{
     protected $slugifier;
 
     /**
@@ -29,6 +30,11 @@ class Correction {
      * @var CityManager
      */
     protected $cityManager;
+
+    /**
+     * @var ProvinceManager
+     */
+    protected $provinceManager;
 
     function __construct()
     {
@@ -59,6 +65,13 @@ class Correction {
         $this->cityManager = $cityManager;
     }
 
+    /**
+     * @param ProvinceManager $provinceManager
+     */
+    public function setProvinceManager($provinceManager)
+    {
+        $this->provinceManager = $provinceManager;
+    }
 
     public function correct(Location $location, Postcode $postcode)
     {
@@ -92,11 +105,13 @@ class Correction {
     public function manipulate(Postcode $postcode, Location $location, $provinceCode)
     {
         if ($location instanceof Municipality) {
-            $location->setProvinceCode($provinceCode);
+            $province = $this->provinceManager->getRepository()->findOneByProvinceCode($provinceCode);
+            $location->setProvince($province);
             $location->setTitleLng('Gemeente ' . $location->getTitle());
             $location->setSlug('gem-' . $this->slugifier->manipulate($location->getTitle() . '-' . $provinceCode));
         } elseif ($location instanceof City) {
-            $municipality = $this->municipalityManager->getRepository()->findOneBy(['province_code' => $provinceCode, 'title' => $postcode->getMunicipality()]);
+            $province = $this->provinceManager->getRepository()->findOneByProvinceCode($provinceCode);
+            $municipality = $this->municipalityManager->getRepository()->findOneBy(['province' => $province, 'title' => $postcode->getMunicipality()]);
             $location->setMunicipality($municipality);
         } elseif ($location instanceof ZipCode) {
             $municipality = $this->municipalityManager->getRepository()->findOneBySlug('gem-' . $this->slugifier->manipulate($postcode->getMunicipality() . '-' . $provinceCode));

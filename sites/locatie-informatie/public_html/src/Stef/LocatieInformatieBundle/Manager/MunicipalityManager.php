@@ -3,6 +3,8 @@
 namespace Stef\LocatieInformatieBundle\Manager;
 
 use Doctrine\Entity;
+use Stef\LocatieInformatieBundle\Entity\Municipality;
+use Stef\LocatieInformatieBundle\Entity\Province;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 class MunicipalityManager extends LocationManager
@@ -29,7 +31,7 @@ class MunicipalityManager extends LocationManager
 
     /**
      * @param $key
-     * @return mixed
+     * @return Municipality
      */
     public function read($key)
     {
@@ -38,6 +40,17 @@ class MunicipalityManager extends LocationManager
         if ($entity === null) {
             $entity = $this->om->getRepository($this->repoName)->findOneBySlug($key);
         }
+
+        return $entity;
+    }
+
+    /**
+     * @param Province $province
+     * @return mixed
+     */
+    public function findByProvince(Province $province)
+    {
+        $entity = $this->om->getRepository($this->repoName)->findByProvince($province);
 
         return $entity;
     }
