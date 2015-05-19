@@ -46,6 +46,18 @@ class StaticPageController extends BaseController
             $page->setRobotsIndex(true);
         }
 
+        if ($province != null && $province->getProvinceCode() == 'LB') {
+            $page->setRobotsIndex(true);
+        }
+
+        if ($province != null && $province->getProvinceCode() == 'FL') {
+            $page->setRobotsIndex(true);
+        }
+
+        if ($provinceSlug == null && $province == null) {
+            $page->setRobotsIndex(true);
+        }
+
         return $this->render('StefLocatieInformatieBundle:ProvinceInfo:show.html.twig', [
             'page' => $page,
             'province' => $province,
