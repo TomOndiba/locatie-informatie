@@ -66,6 +66,14 @@ class StaticPageController extends BaseController
             $page->setRobotsIndex(true);
         }
 
+        if ($province != null && $province->getProvinceCode() == 'GE') {
+            $page->setRobotsIndex(true);
+        }
+
+        if ($province != null && $province->getProvinceCode() == 'UT') {
+            $page->setRobotsIndex(true);
+        }
+
         if ($provinceSlug == null && $province == null) {
             $page->setRobotsIndex(true);
         }
