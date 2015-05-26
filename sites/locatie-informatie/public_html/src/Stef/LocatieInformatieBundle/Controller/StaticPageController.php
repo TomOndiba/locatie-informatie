@@ -74,6 +74,10 @@ class StaticPageController extends BaseController
             $page->setRobotsIndex(true);
         }
 
+        if ($province != null && $province->getProvinceCode() == 'NH') {
+            $page->setRobotsIndex(true);
+        }
+
         if ($provinceSlug == null && $province == null) {
             $page->setRobotsIndex(true);
         }
