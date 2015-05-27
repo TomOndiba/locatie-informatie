@@ -1,1 +1,3 @@
 #Pages
+rewrite ^/m / permanent;
+rewrite ^/mobile / permanent;

@@ -93,7 +93,6 @@ class DefaultController extends BaseController
         return $this->progressIndexPages($request, $manager, $char, $params);
     }
 
-
     protected function progressIndexPages(Request $request, LocationManager $manager, $char = null, ParameterBag $params)
     {
         if ($char == null) {
