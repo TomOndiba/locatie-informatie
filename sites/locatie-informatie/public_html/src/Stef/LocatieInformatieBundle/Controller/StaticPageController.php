@@ -2,10 +2,7 @@
 
 namespace Stef\LocatieInformatieBundle\Controller;
 
-use Stef\LocatieInformatieBundle\Manager\LocationManager;
 use Stef\SimpleCmsBundle\Entity\Page;
-use Symfony\Component\HttpFoundation\ParameterBag;
-use Symfony\Component\HttpFoundation\Request;
 
 class StaticPageController extends BaseController
 {
