@@ -31,55 +31,18 @@ class StaticPageController extends BaseController
         $province = $provinceManager->read($provinceSlug);
 
         $page = new Page();
-        $page->setRobotsIndex(false);
+        $page->setRobotsIndex(true);
         $page->setRobotsFollow(true);
 
         if ($provinceSlug == null && $province == null) {
             $page->setTitle('Provincies in Nederland');
             $page->setDescription('Een volledig overzicht van Nederlandse provincies! Bekijk hier wat alle twaalf Nederlandse provincies kunnen bieden');
-        } else {
+        } elseif ($provinceSlug != null && $province != null)  {
             $page->setTitle('Provincie ' . $province->getTitle());
             $page->setDescription('Bekijk hier alles over de provincie ' . $province->getTitle() . '! Met ' . count($province->getMunicipalities()) . ' gemeenten is er altijd wat te doen in ' . $province->getTitle());
-        }
-
-        if ($province != null && $province->getProvinceCode() == 'ZH') {
-            $page->setRobotsIndex(true);
-        }
-
-        if ($province != null && $province->getProvinceCode() == 'LB') {
-            $page->setRobotsIndex(true);
-        }
-
-        if ($province != null && $province->getProvinceCode() == 'FL') {
-            $page->setRobotsIndex(true);
-        }
-
-        if ($province != null && $province->getProvinceCode() == 'ZL') {
-            $page->setRobotsIndex(true);
-        }
-
-        if ($province != null && $province->getProvinceCode() == 'FR') {
-            $page->setRobotsIndex(true);
-        }
-
-        if ($province != null && $province->getProvinceCode() == 'GL') {
-            $page->setRobotsIndex(true);
-        }
-
-        if ($province != null && $province->getProvinceCode() == 'GE') {
-            $page->setRobotsIndex(true);
-        }
-
-        if ($province != null && $province->getProvinceCode() == 'UT') {
-            $page->setRobotsIndex(true);
-        }
-
-        if ($province != null && $province->getProvinceCode() == 'NH') {
-            $page->setRobotsIndex(true);
-        }
-
-        if ($provinceSlug == null && $province == null) {
-            $page->setRobotsIndex(true);
+        } else {
+            $page->setRobotsIndex(false);
+            $page->setRobotsFollow(false);
         }
 
         return $this->render('StefLocatieInformatieBundle:ProvinceInfo:show.html.twig', [
