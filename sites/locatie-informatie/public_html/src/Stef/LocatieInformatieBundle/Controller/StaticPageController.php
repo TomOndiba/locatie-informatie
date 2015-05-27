@@ -41,8 +41,7 @@ class StaticPageController extends BaseController
             $page->setTitle('Provincie ' . $province->getTitle());
             $page->setDescription('Bekijk hier alles over de provincie ' . $province->getTitle() . '! Met ' . count($province->getMunicipalities()) . ' gemeenten is er altijd wat te doen in ' . $province->getTitle());
         } else {
-            $page->setRobotsIndex(false);
-            $page->setRobotsFollow(false);
+            return $this->redirect($this->generateUrl('stef_locatie_informatie_province_info_index'));
         }
 
         return $this->render('StefLocatieInformatieBundle:ProvinceInfo:show.html.twig', [
