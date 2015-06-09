@@ -67,7 +67,7 @@ class DefaultController extends BaseController
 
         $page->setRobotsIndex(false);
 
-        if (count($municipalities) > 50) {
+        if (count($municipalities) > 25) {
             $page->setRobotsIndex(true);
         }
 
@@ -119,7 +119,7 @@ class DefaultController extends BaseController
         $page->setTitle(str_replace(['%NUMBER%', '%CHAR%'], [count($list), strtoupper($char)], $page->getTitle()));
         $page->setRobotsIndex(false);
 
-        if (count($list) > 75) {
+        if (count($list) > 50) {
             $page->setRobotsIndex(true);
         }
 
