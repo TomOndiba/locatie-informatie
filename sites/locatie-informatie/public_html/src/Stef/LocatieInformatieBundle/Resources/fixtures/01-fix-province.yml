@@ -12,6 +12,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     provinceCode: ZH
     sourceLocationTypeId: 1
     locationDetail: unknown
+    cbsCode: 28
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-2:
@@ -27,6 +28,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     provinceCode: NH
     sourceLocationTypeId: 2
     locationDetail: unknown
+    cbsCode: 27
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-3:
@@ -42,6 +44,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     provinceCode: ZE
     sourceLocationTypeId: 3
     locationDetail: unknown
+    cbsCode: 29
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-4:
@@ -57,6 +60,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     provinceCode: LI
     sourceLocationTypeId: 4
     locationDetail: unknown
+    cbsCode: 31
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-5:
@@ -72,6 +76,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     provinceCode: GE
     sourceLocationTypeId: 5
     locationDetail: unknown
+    cbsCode: 25
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-6:
@@ -87,6 +92,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     provinceCode: FL
     sourceLocationTypeId: 6
     locationDetail: unknown
+    cbsCode: 24
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-7:
@@ -102,6 +108,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     provinceCode: UT
     sourceLocationTypeId: 7
     locationDetail: unknown
+    cbsCode: 26
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-8:
@@ -117,6 +124,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     provinceCode: FR
     sourceLocationTypeId: 8
     locationDetail: unknown
+    cbsCode: 21
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-9:
@@ -132,6 +140,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     provinceCode: OV
     sourceLocationTypeId: 9
     locationDetail: unknown
+    cbsCode: 23
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-10:
@@ -147,6 +156,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     provinceCode: NB
     sourceLocationTypeId: 10
     locationDetail: unknown
+    cbsCode: 30
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-11:
@@ -162,6 +172,7 @@ Stef\LocatieInformatieBundle\Entity\Province:
     provinceCode: DR
     sourceLocationTypeId: 11
     locationDetail: unknown
+    cbsCode: 22
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
   prov-12:
@@ -177,5 +188,6 @@ Stef\LocatieInformatieBundle\Entity\Province:
     provinceCode: GR
     sourceLocationTypeId: 12
     locationDetail: unknown
+    cbsCode: 20
     created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
     modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
