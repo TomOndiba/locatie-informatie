@@ -1,23 +1,23 @@
 services:
     stef_simple_cms.postcode_manager:
         class: Stef\LocatieInformatieBundle\Manager\PostcodeManager
-        arguments: ["@doctrine.orm.entity_manager"]
+        arguments: ["@doctrine.orm.entity_manager", "@stef.slugifier"]
 
     stef_simple_cms.province_manager:
         class: Stef\LocatieInformatieBundle\Manager\ProvinceManager
-        arguments: ["@doctrine.orm.entity_manager"]
+        arguments: ["@doctrine.orm.entity_manager", "@stef.slugifier"]
 
     stef_simple_cms.zipcode_manager:
         class: Stef\LocatieInformatieBundle\Manager\ZipcodeManager
-        arguments: ["@doctrine.orm.entity_manager"]
+        arguments: ["@doctrine.orm.entity_manager", "@stef.slugifier"]
 
     stef_simple_cms.city_manager:
         class: Stef\LocatieInformatieBundle\Manager\CityManager
-        arguments: ["@doctrine.orm.entity_manager"]
+        arguments: ["@doctrine.orm.entity_manager", "@stef.slugifier"]
 
     stef_simple_cms.municipality_manager:
         class: Stef\LocatieInformatieBundle\Manager\MunicipalityManager
-        arguments: ["@doctrine.orm.entity_manager"]
+        arguments: ["@doctrine.orm.entity_manager", "@stef.slugifier"]
 
     stef_simple_cms.page_manager:
         class: Stef\SimpleCmsBundle\Manager\PageManager

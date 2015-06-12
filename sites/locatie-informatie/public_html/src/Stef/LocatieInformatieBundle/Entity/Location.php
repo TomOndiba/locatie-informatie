@@ -392,4 +392,20 @@ abstract class Location
     {
         $this->title_lng = $title_lng;
     }
+
+    /**
+     * @return string
+     */
+    public function getCbsCode()
+    {
+        return $this->cbsCode;
+    }
+
+    /**
+     * @param string $cbsCode
+     */
+    public function setCbsCode($cbsCode)
+    {
+        $this->cbsCode = $cbsCode;
+    }
 }
