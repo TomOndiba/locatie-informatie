@@ -2,12 +2,8 @@
 namespace Stef\LocatieInformatieBundle\Command;
 
 use Stef\LocatieInformatieBundle\Entity\Municipality;
-use Stef\LocatieInformatieBundle\Entity\Province;
-use Stef\LocatieInformatieBundle\Manager\MunicipalityManager;
-use Stef\LocatieInformatieBundle\Manager\ProvinceManager;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\HttpFoundation\File\File;
 
 class CorrectionsConverterCommand extends AbstractConverterCommand
 {
@@ -72,6 +68,7 @@ class CorrectionsConverterCommand extends AbstractConverterCommand
             if ($oldMunicipality === null) {
                 $oldMunicipality = $municipalityManager->findOneByTitle($old[0]);
             }
+
             $cities = $cityManager->findByMunicipality($oldMunicipality);
 
             if ($oldMunicipality !== null && $targetMunicipality !== null) {
@@ -80,10 +77,11 @@ class CorrectionsConverterCommand extends AbstractConverterCommand
                     $cityManager->persistAndFlush($city);
                     echo $city->getTitle() . " is moved from '" . $oldMunicipality->getTitle() . "' to '" . $targetMunicipality->getTitle() . "'\n";
                 }
+
+                $municipalityManager->remove($oldMunicipality);
             } else {
                 echo "Something may be wrong. One or both municipalities are NULL: " . json_encode($target) . " -- " . json_encode($olds);
             }
-
         }
     }
 }

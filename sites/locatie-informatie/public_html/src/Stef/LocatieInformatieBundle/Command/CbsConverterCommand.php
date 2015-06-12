@@ -1,12 +1,9 @@
 <?php
 namespace Stef\LocatieInformatieBundle\Command;
 
-use Stef\LocatieInformatieBundle\Entity\Province;
-use Stef\LocatieInformatieBundle\Manager\MunicipalityManager;
 use Stef\LocatieInformatieBundle\Manager\ProvinceManager;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\HttpFoundation\File\File;
 
 class CbsConverterCommand extends AbstractConverterCommand
 {
@@ -16,30 +13,6 @@ class CbsConverterCommand extends AbstractConverterCommand
             ->setName('location:convert:cbs')
             ->setDescription('Extend existing location data with CBS data')
         ;
-    }
-
-    protected function loadCsv()
-    {
-        $file = new File('/home/vagrant/sites/locatie-informatie/public_html/src/Stef/LocatieInformatieBundle/Resources/cbs_data/municiplicity_province2015.csv');
-        $header = [];
-        $rowno = 0;
-        $data = [];
-
-        if (($handle = fopen($file->getRealPath(), "r")) !== FALSE) {
-            while(($row = fgetcsv($handle)) !== FALSE) {
-
-                if ($rowno === 0) {
-                    $header = $row;
-                } else {
-                    foreach ($header as $key => $value) {
-                        $data[$rowno][$value] = $row[$key];
-                    }
-                }
-                $rowno++;
-            }
-        }
-
-        return $data;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
