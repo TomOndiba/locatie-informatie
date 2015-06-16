@@ -3,6 +3,7 @@
 namespace Stef\LocatieInformatieBundle\Manager;
 
 use Doctrine\Entity;
+use Stef\LocatieInformatieBundle\Entity\Municipality;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 class CityManager extends LocationManager
@@ -38,6 +39,13 @@ class CityManager extends LocationManager
         if ($entity === null) {
             $entity = $this->om->getRepository($this->repoName)->findOneBySlug($key);
         }
+
+        return $entity;
+    }
+
+    public function findByMunicipality(Municipality $municipality)
+    {
+        $entity = $this->om->getRepository($this->repoName)->findByMunicipality($municipality);
 
         return $entity;
     }

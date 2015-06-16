@@ -83,7 +83,7 @@ abstract class Location
      *
      * The level of detail of the GEO markers.
      *
-     * @ORM\Column(name="location_detail", type="string", length=50)
+     * @ORM\Column(name="location_detail", type="string", length=50, nullable=true)
      */
     protected $locationDetail;
 
@@ -92,9 +92,19 @@ abstract class Location
      *
      * Filled with the data from the original city_id, municipality_id or postcode_id
      *
-     * @ORM\Column(name="source_location_type_id", type="integer")
+     * @ORM\Column(name="source_location_type_id", type="integer", nullable=true)
      */
     protected $sourceLocationTypeId;
+
+    /**
+     * @var string
+     *
+     * Filled with the data from the original city_id, municipality_id or postcode_id
+     *
+     * @ORM\Column(name="cbs_code", type="string", length=4, nullable=true)
+     */
+    protected $cbsCode;
+
     /**
      * @var \DateTime
      *
@@ -381,5 +391,21 @@ abstract class Location
     public function setTitleLng($title_lng)
     {
         $this->title_lng = $title_lng;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCbsCode()
+    {
+        return $this->cbsCode;
+    }
+
+    /**
+     * @param string $cbsCode
+     */
+    public function setCbsCode($cbsCode)
+    {
+        $this->cbsCode = $cbsCode;
     }
 }

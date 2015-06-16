@@ -1,23 +1,17 @@
 <?php
 namespace Stef\LocatieInformatieBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ConverterCommand extends ContainerAwareCommand
+class ConverterCommand extends AbstractConverterCommand
 {
     protected function configure()
     {
         $this
-            ->setName('location:convert')
-            ->setDescription('Convert Locationdata in our own format. Send the data to convert to a messageqeue.')
+            ->setName('location:convert:sql')
+            ->setDescription('Convert existing SQL Locationdata in our own format. Send the data to convert to a message queue.')
         ;
-    }
-
-    protected function get($service)
-    {
-        return $this->getApplication()->getKernel()->getContainer()->get($service);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

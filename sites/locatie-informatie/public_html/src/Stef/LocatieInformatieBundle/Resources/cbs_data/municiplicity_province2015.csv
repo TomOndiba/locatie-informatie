@@ -1,0 +1,394 @@
+m_code,p_code,municipality,province
+0003,20,Appingedam,Groningen
+0005,20,Bedum,Groningen
+0007,20,Bellingwedde,Groningen
+0009,20,Ten Boer,Groningen
+0010,20,Delfzijl,Groningen
+1651,20,Eemsmond,Groningen
+0014,20,Groningen,Groningen
+0015,20,Grootegast,Groningen
+0017,20,Haren,Groningen
+0018,20,Hoogezand-Sappemeer,Groningen
+0022,20,Leek,Groningen
+0024,20,Loppersum,Groningen
+1663,20,De Marne,Groningen
+0025,20,Marum,Groningen
+1987,20,Menterwolde,Groningen
+1895,20,Oldambt,Groningen
+0765,20,Pekela,Groningen
+0040,20,Slochteren,Groningen
+0037,20,Stadskanaal,Groningen
+0047,20,Veendam,Groningen
+0048,20,Vlagtwedde,Groningen
+0053,20,Winsum,Groningen
+0056,20,Zuidhorn,Groningen
+0059,21,Achtkarspelen,Friesland
+0060,21,Ameland,Friesland
+0063,21,het Bildt,Friesland
+1891,21,Dantumadiel,Friesland
+0058,21,Dongeradeel,Friesland
+1722,21,Ferwerderadiel,Friesland
+0070,21,Franekeradeel,Friesland
+1921,21,De Friese Meren,Friesland
+0072,21,Harlingen,Friesland
+0074,21,Heerenveen,Friesland
+0079,21,Kollumerland en Nieuwkruisland,Friesland
+0080,21,Leeuwarden,Friesland
+0081,21,Leeuwarderadeel,Friesland
+0140,21,Littenseradiel,Friesland
+1908,21,Menameradiel,Friesland
+0085,21,Ooststellingwerf,Friesland
+0086,21,Opsterland,Friesland
+0088,21,Schiermonnikoog,Friesland
+0090,21,Smallingerland,Friesland
+1900,21,Súdwest-Fryslân,Friesland
+0093,21,Terschelling,Friesland
+0737,21,Tytsjerksteradiel,Friesland
+0096,21,Vlieland,Friesland
+0098,21,Weststellingwerf,Friesland
+1680,22,Aa en Hunze,Drenthe
+0106,22,Assen,Drenthe
+1681,22,Borger-Odoorn,Drenthe
+0109,22,Coevorden,Drenthe
+0114,22,Emmen,Drenthe
+0118,22,Hoogeveen,Drenthe
+0119,22,Meppel,Drenthe
+1731,22,Midden-Drenthe,Drenthe
+1699,22,Noordenveld,Drenthe
+1730,22,Tynaarlo,Drenthe
+1701,22,Westerveld,Drenthe
+1690,22,De Wolden,Drenthe
+0141,23,Almelo,Overijssel
+0147,23,Borne,Overijssel
+0148,23,Dalfsen,Overijssel
+0150,23,Deventer,Overijssel
+1774,23,Dinkelland,Overijssel
+0153,23,Enschede,Overijssel
+0158,23,Haaksbergen,Overijssel
+0160,23,Hardenberg,Overijssel
+0163,23,Hellendoorn,Overijssel
+0164,23,Hengelo,Overijssel
+1735,23,Hof van Twente,Overijssel
+0166,23,Kampen,Overijssel
+0168,23,Losser,Overijssel
+0173,23,Oldenzaal,Overijssel
+1773,23,Olst-Wijhe,Overijssel
+0175,23,Ommen,Overijssel
+0177,23,Raalte,Overijssel
+1742,23,Rijssen-Holten,Overijssel
+0180,23,Staphorst,Overijssel
+1708,23,Steenwijkerland,Overijssel
+0183,23,Tubbergen,Overijssel
+1700,23,Twenterand,Overijssel
+0189,23,Wierden,Overijssel
+1896,23,Zwartewaterland,Overijssel
+0193,23,Zwolle,Overijssel
+0034,24,Almere,Flevoland
+0303,24,Dronten,Flevoland
+0995,24,Lelystad,Flevoland
+0171,24,Noordoostpolder,Flevoland
+0184,24,Urk,Flevoland
+0050,24,Zeewolde,Flevoland
+0197,25,Aalten,Gelderland
+0200,25,Apeldoorn,Gelderland
+0202,25,Arnhem,Gelderland
+0203,25,Barneveld,Gelderland
+1859,25,Berkelland,Gelderland
+0209,25,Beuningen,Gelderland
+1876,25,Bronckhorst,Gelderland
+0213,25,Brummen,Gelderland
+0214,25,Buren,Gelderland
+0216,25,Culemborg,Gelderland
+0221,25,Doesburg,Gelderland
+0222,25,Doetinchem,Gelderland
+0225,25,Druten,Gelderland
+0226,25,Duiven,Gelderland
+0228,25,Ede,Gelderland
+0230,25,Elburg,Gelderland
+0232,25,Epe,Gelderland
+0233,25,Ermelo,Gelderland
+0236,25,Geldermalsen,Gelderland
+0241,25,Groesbeek,Gelderland
+0243,25,Harderwijk,Gelderland
+0244,25,Hattem,Gelderland
+0246,25,Heerde,Gelderland
+0252,25,Heumen,Gelderland
+0733,25,Lingewaal,Gelderland
+1705,25,Lingewaard,Gelderland
+0262,25,Lochem,Gelderland
+0263,25,Maasdriel,Gelderland
+1955,25,Montferland,Gelderland
+1740,25,Neder-Betuwe,Gelderland
+0304,25,Neerijnen,Gelderland
+0267,25,Nijkerk,Gelderland
+0268,25,Nijmegen,Gelderland
+0302,25,Nunspeet,Gelderland
+0269,25,Oldebroek,Gelderland
+1586,25,Oost Gelre,Gelderland
+1509,25,Oude IJsselstreek,Gelderland
+1734,25,Overbetuwe,Gelderland
+0273,25,Putten,Gelderland
+0274,25,Renkum,Gelderland
+0275,25,Rheden,Gelderland
+0196,25,Rijnwaarden,Gelderland
+0277,25,Rozendaal,Gelderland
+0279,25,Scherpenzeel,Gelderland
+0281,25,Tiel,Gelderland
+0285,25,Voorst,Gelderland
+0289,25,Wageningen,Gelderland
+0668,25,West Maas en Waal,Gelderland
+0293,25,Westervoort,Gelderland
+0296,25,Wijchen,Gelderland
+0294,25,Winterswijk,Gelderland
+0297,25,Zaltbommel,Gelderland
+0299,25,Zevenaar,Gelderland
+0301,25,Zutphen,Gelderland
+0307,26,Amersfoort,Utrecht
+0308,26,Baarn,Utrecht
+0310,26,De Bilt,Utrecht
+0312,26,Bunnik,Utrecht
+0313,26,Bunschoten,Utrecht
+0317,26,Eemnes,Utrecht
+0321,26,Houten,Utrecht
+0353,26,IJsselstein,Utrecht
+0327,26,Leusden,Utrecht
+0331,26,Lopik,Utrecht
+0335,26,Montfoort,Utrecht
+0356,26,Nieuwegein,Utrecht
+0589,26,Oudewater,Utrecht
+0339,26,Renswoude,Utrecht
+0340,26,Rhenen,Utrecht
+0736,26,De Ronde Venen,Utrecht
+0342,26,Soest,Utrecht
+1904,26,Stichtse Vecht,Utrecht
+0344,26,Utrecht,Utrecht
+1581,26,Utrechtse Heuvelrug,Utrecht
+0345,26,Veenendaal,Utrecht
+0620,26,Vianen,Utrecht
+0352,26,Wijk bij Duurstede,Utrecht
+0632,26,Woerden,Utrecht
+0351,26,Woudenberg,Utrecht
+0355,26,Zeist,Utrecht
+0358,27,Aalsmeer,Noord-Holland
+0361,27,Alkmaar,Noord-Holland
+0362,27,Amstelveen,Noord-Holland
+0363,27,Amsterdam,Noord-Holland
+0370,27,Beemster,Noord-Holland
+0373,27,Bergen (NH.),Noord-Holland
+0375,27,Beverwijk,Noord-Holland
+0376,27,Blaricum,Noord-Holland
+0377,27,Bloemendaal,Noord-Holland
+0381,27,Bussum,Noord-Holland
+0383,27,Castricum,Noord-Holland
+0384,27,Diemen,Noord-Holland
+0498,27,Drechterland,Noord-Holland
+0385,27,Edam-Volendam,Noord-Holland
+0388,27,Enkhuizen,Noord-Holland
+0392,27,Haarlem,Noord-Holland
+0393,27,Haarlemmerliede en Spaarnwoude,Noord-Holland
+0394,27,Haarlemmermeer,Noord-Holland
+0396,27,Heemskerk,Noord-Holland
+0397,27,Heemstede,Noord-Holland
+0398,27,Heerhugowaard,Noord-Holland
+0399,27,Heiloo,Noord-Holland
+0400,27,Den Helder,Noord-Holland
+0402,27,Hilversum,Noord-Holland
+1911,27,Hollands Kroon,Noord-Holland
+0405,27,Hoorn,Noord-Holland
+0406,27,Huizen,Noord-Holland
+1598,27,Koggenland,Noord-Holland
+0415,27,Landsmeer,Noord-Holland
+0416,27,Langedijk,Noord-Holland
+0417,27,Laren,Noord-Holland
+0420,27,Medemblik,Noord-Holland
+0424,27,Muiden,Noord-Holland
+0425,27,Naarden,Noord-Holland
+0431,27,Oostzaan,Noord-Holland
+0432,27,Opmeer,Noord-Holland
+0437,27,Ouder-Amstel,Noord-Holland
+0439,27,Purmerend,Noord-Holland
+0441,27,Schagen,Noord-Holland
+0532,27,Stede Broec,Noord-Holland
+0448,27,Texel,Noord-Holland
+0450,27,Uitgeest,Noord-Holland
+0451,27,Uithoorn,Noord-Holland
+0453,27,Velsen,Noord-Holland
+0852,27,Waterland,Noord-Holland
+0457,27,Weesp,Noord-Holland
+1696,27,Wijdemeren,Noord-Holland
+0880,27,Wormerland,Noord-Holland
+0479,27,Zaanstad,Noord-Holland
+0473,27,Zandvoort,Noord-Holland
+0478,27,Zeevang,Noord-Holland
+0482,28,Alblasserdam,Zuid-Holland
+0613,28,Albrandswaard,Zuid-Holland
+0484,28,Alphen aan den Rijn,Zuid-Holland
+0489,28,Barendrecht,Zuid-Holland
+0585,28,Binnenmaas,Zuid-Holland
+1901,28,Bodegraven-Reeuwijk,Zuid-Holland
+0501,28,Brielle,Zuid-Holland
+0502,28,Capelle aan den IJssel,Zuid-Holland
+0611,28,Cromstrijen,Zuid-Holland
+0503,28,Delft,Zuid-Holland
+0505,28,Dordrecht,Zuid-Holland
+0689,28,Giessenlanden,Zuid-Holland
+1924,28,Goeree-Overflakkee,Zuid-Holland
+0512,28,Gorinchem,Zuid-Holland
+0513,28,Gouda,Zuid-Holland
+0518,28,'s-Gravenhage,Zuid-Holland
+0523,28,Hardinxveld-Giessendam,Zuid-Holland
+0530,28,Hellevoetsluis,Zuid-Holland
+0531,28,Hendrik-Ido-Ambacht,Zuid-Holland
+0534,28,Hillegom,Zuid-Holland
+1884,28,Kaag en Braassem,Zuid-Holland
+0537,28,Katwijk,Zuid-Holland
+0588,28,Korendijk,Zuid-Holland
+0542,28,Krimpen aan den IJssel,Zuid-Holland
+1931,28,Krimpenerwaard,Zuid-Holland
+1621,28,Lansingerland,Zuid-Holland
+0545,28,Leerdam,Zuid-Holland
+0546,28,Leiden,Zuid-Holland
+0547,28,Leiderdorp,Zuid-Holland
+1916,28,Leidschendam-Voorburg,Zuid-Holland
+0553,28,Lisse,Zuid-Holland
+0556,28,Maassluis,Zuid-Holland
+1842,28,Midden-Delfland,Zuid-Holland
+1927,28,Molenwaard,Zuid-Holland
+0569,28,Nieuwkoop,Zuid-Holland
+1930,28,Nissewaard,Zuid-Holland
+0575,28,Noordwijk,Zuid-Holland
+0576,28,Noordwijkerhout,Zuid-Holland
+0579,28,Oegstgeest,Zuid-Holland
+0584,28,Oud-Beijerland,Zuid-Holland
+0590,28,Papendrecht,Zuid-Holland
+1926,28,Pijnacker-Nootdorp,Zuid-Holland
+0597,28,Ridderkerk,Zuid-Holland
+0603,28,Rijswijk,Zuid-Holland
+0599,28,Rotterdam,Zuid-Holland
+0606,28,Schiedam,Zuid-Holland
+0610,28,Sliedrecht,Zuid-Holland
+0617,28,Strijen,Zuid-Holland
+1525,28,Teylingen,Zuid-Holland
+0622,28,Vlaardingen,Zuid-Holland
+0626,28,Voorschoten,Zuid-Holland
+0627,28,Waddinxveen,Zuid-Holland
+0629,28,Wassenaar,Zuid-Holland
+1783,28,Westland,Zuid-Holland
+0614,28,Westvoorne,Zuid-Holland
+0707,28,Zederik,Zuid-Holland
+0637,28,Zoetermeer,Zuid-Holland
+0638,28,Zoeterwoude,Zuid-Holland
+1892,28,Zuidplas,Zuid-Holland
+0642,28,Zwijndrecht,Zuid-Holland
+0654,29,Borsele,Zeeland
+0664,29,Goes,Zeeland
+0677,29,Hulst,Zeeland
+0678,29,Kapelle,Zeeland
+0687,29,Middelburg,Zeeland
+1695,29,Noord-Beveland,Zeeland
+0703,29,Reimerswaal,Zeeland
+1676,29,Schouwen-Duiveland,Zeeland
+1714,29,Sluis,Zeeland
+0715,29,Terneuzen,Zeeland
+0716,29,Tholen,Zeeland
+0717,29,Veere,Zeeland
+0718,29,Vlissingen,Zeeland
+0738,30,Aalburg,Noord-Brabant
+1723,30,Alphen-Chaam,Noord-Brabant
+0743,30,Asten,Noord-Brabant
+0744,30,Baarle-Nassau,Noord-Brabant
+1724,30,Bergeijk,Noord-Brabant
+0748,30,Bergen op Zoom,Noord-Brabant
+1721,30,Bernheze,Noord-Brabant
+0753,30,Best,Noord-Brabant
+1728,30,Bladel,Noord-Brabant
+0755,30,Boekel,Noord-Brabant
+0756,30,Boxmeer,Noord-Brabant
+0757,30,Boxtel,Noord-Brabant
+0758,30,Breda,Noord-Brabant
+1706,30,Cranendonck,Noord-Brabant
+1684,30,Cuijk,Noord-Brabant
+0762,30,Deurne,Noord-Brabant
+0766,30,Dongen,Noord-Brabant
+1719,30,Drimmelen,Noord-Brabant
+0770,30,Eersel,Noord-Brabant
+0772,30,Eindhoven,Noord-Brabant
+0777,30,Etten-Leur,Noord-Brabant
+0779,30,Geertruidenberg,Noord-Brabant
+1771,30,Geldrop-Mierlo,Noord-Brabant
+1652,30,Gemert-Bakel,Noord-Brabant
+0784,30,Gilze en Rijen,Noord-Brabant
+0785,30,Goirle,Noord-Brabant
+0786,30,Grave,Noord-Brabant
+0788,30,Haaren,Noord-Brabant
+1655,30,Halderberge,Noord-Brabant
+1658,30,Heeze-Leende,Noord-Brabant
+0794,30,Helmond,Noord-Brabant
+0796,30,'s-Hertogenbosch,Noord-Brabant
+0797,30,Heusden,Noord-Brabant
+0798,30,Hilvarenbeek,Noord-Brabant
+1659,30,Laarbeek,Noord-Brabant
+1685,30,Landerd,Noord-Brabant
+0809,30,Loon op Zand,Noord-Brabant
+0815,30,Mill en Sint Hubert,Noord-Brabant
+1709,30,Moerdijk,Noord-Brabant
+0820,30,"Nuenen, Gerwen en Nederwetten",Noord-Brabant
+0823,30,Oirschot,Noord-Brabant
+0824,30,Oisterwijk,Noord-Brabant
+0826,30,Oosterhout,Noord-Brabant
+0828,30,Oss,Noord-Brabant
+1667,30,Reusel-De Mierden,Noord-Brabant
+1674,30,Roosendaal,Noord-Brabant
+0840,30,Rucphen,Noord-Brabant
+0844,30,Schijndel,Noord-Brabant
+1702,30,Sint Anthonis,Noord-Brabant
+0845,30,Sint-Michielsgestel,Noord-Brabant
+0846,30,Sint-Oedenrode,Noord-Brabant
+0847,30,Someren,Noord-Brabant
+0848,30,Son en Breugel,Noord-Brabant
+0851,30,Steenbergen,Noord-Brabant
+0855,30,Tilburg,Noord-Brabant
+0856,30,Uden,Noord-Brabant
+0858,30,Valkenswaard,Noord-Brabant
+0860,30,Veghel,Noord-Brabant
+0861,30,Veldhoven,Noord-Brabant
+0865,30,Vught,Noord-Brabant
+0866,30,Waalre,Noord-Brabant
+0867,30,Waalwijk,Noord-Brabant
+0870,30,Werkendam,Noord-Brabant
+0873,30,Woensdrecht,Noord-Brabant
+0874,30,Woudrichem,Noord-Brabant
+0879,30,Zundert,Noord-Brabant
+0888,31,Beek,Limburg
+0889,31,Beesel,Limburg
+0893,31,Bergen (L.),Limburg
+0899,31,Brunssum,Limburg
+1711,31,Echt-Susteren,Limburg
+1903,31,Eijsden-Margraten,Limburg
+0907,31,Gennep,Limburg
+1729,31,Gulpen-Wittem,Limburg
+0917,31,Heerlen,Limburg
+1507,31,Horst aan de Maas,Limburg
+0928,31,Kerkrade,Limburg
+0882,31,Landgraaf,Limburg
+1640,31,Leudal,Limburg
+1641,31,Maasgouw,Limburg
+0935,31,Maastricht,Limburg
+0938,31,Meerssen,Limburg
+0944,31,Mook en Middelaar,Limburg
+0946,31,Nederweert,Limburg
+0951,31,Nuth,Limburg
+0881,31,Onderbanken,Limburg
+1894,31,Peel en Maas,Limburg
+1669,31,Roerdalen,Limburg
+0957,31,Roermond,Limburg
+0962,31,Schinnen,Limburg
+0965,31,Simpelveld,Limburg
+1883,31,Sittard-Geleen,Limburg
+0971,31,Stein,Limburg
+0981,31,Vaals,Limburg
+0994,31,Valkenburg aan de Geul,Limburg
+0983,31,Venlo,Limburg
+0984,31,Venray,Limburg
+0986,31,Voerendaal,Limburg
+0988,31,Weert,Limburg
