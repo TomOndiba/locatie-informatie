@@ -64,13 +64,16 @@ class CorrectionsConverterCommand extends AbstractConverterCommand
         $targetMunicipality = $municipalityManager->findByCbsCode($target[1]);
 
         foreach ($olds as $old) {
+            $cities  = array();
             $oldMunicipality = $municipalityManager->findByCbsCode($old[1]);
 
             if ($oldMunicipality === null) {
                 $oldMunicipality = $municipalityManager->findOneByTitle($old[0]);
             }
 
-            $cities = $cityManager->findByMunicipality($oldMunicipality);
+            if ($oldMunicipality != null) {
+                $cities = $cityManager->findByMunicipality($oldMunicipality);
+            }
 
             if ($oldMunicipality !== null && $targetMunicipality !== null) {
                 foreach($cities as $city) {
@@ -91,7 +94,7 @@ class CorrectionsConverterCommand extends AbstractConverterCommand
 
             if (count($cities) === 0) {
                 $municipalityManager->removeAndFlush($m);
-                echo $m->getTitle() . " is removed form the database"  . "'\n";
+                echo $m->getTitle() . " is removed form the database"  . "\n";
             } else {
                 echo $m->getTitle() . " contains still " . count($cities)  . " cities. It will not be removed. \n";
             }
