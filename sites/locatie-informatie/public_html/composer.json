@@ -22,10 +22,6 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/stefanius/generate-fixtures-bundle"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/stefanius/simple-cms-bundle"
         }
     ],
@@ -35,12 +31,12 @@
         "doctrine/orm": "~2.2,>=2.2.3,<2.5",
         "doctrine/dbal": "<2.5",
         "doctrine/doctrine-bundle": "~1.2",
-        "phpunit/phpunit": "~4.1",
+        "phpunit/phpunit": "~4.7",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
-        "sensio/distribution-bundle": "~2.3",
+        "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "~3.0",
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
@@ -51,7 +47,6 @@
         "jms/serializer-bundle": "dev-master",
         "nelmio/alice": "v1.6.0",
         "egeloen/ckeditor-bundle": "~2.0",
-        "egeloen/google-map-bundle": "~2.2",
         "frequence-web/calendr-bundle": "~1.0",
         "whiteoctober/breadcrumbs-bundle": "~1.0",
         "leezy/pheanstalk-bundle": "~3.0@dev",
@@ -59,7 +54,6 @@
         "stef/manipulation": "dev-master",
         "stef/slug-manipulation": "dev-master",
         "stef/key-value-manipulation": "dev-master",
-        "stef/generate-fixtures-bundle": "dev-master",
         "stef/simple-cms-bundle": "dev-master",
         "stef/redirect-trailing-slash-bundle": "dev-master"
     },

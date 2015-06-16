@@ -37,7 +37,6 @@ class AppKernel extends Kernel
             /* WhiteOctober */
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
             /* Stefanius */
-            new Stef\GenerateFixturesBundle\StefGenerateFixturesBundle(),
             new Stef\SimpleCmsBundle\StefSimpleCmsBundle(),
             new Stef\RedirectTrailingSlashBundle\StefRedirectTrailingSlashBundle(),
             new Stef\LocatieInformatieBundle\StefLocatieInformatieBundle(),
