@@ -90,7 +90,7 @@ class CorrectionsConverterCommand extends AbstractConverterCommand
             $cities = $cityManager->findByMunicipality($m);
 
             if (count($cities) === 0) {
-                $municipalityManager->remove($m);
+                $municipalityManager->removeAndFlush($m);
                 echo $m->getTitle() . " is removed form the database"  . "'\n";
             } else {
                 echo $m->getTitle() . " contains still " . count($cities)  . " cities. It will not be removed. \n";
