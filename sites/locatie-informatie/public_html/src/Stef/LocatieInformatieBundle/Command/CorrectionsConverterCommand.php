@@ -59,6 +59,7 @@ class CorrectionsConverterCommand extends AbstractConverterCommand
     {
         $municipalityManager = $this->getMunicipalityManager();
         $cityManager = $this->getCityManager();
+        $remove = array();
 
         $targetMunicipality = $municipalityManager->findByCbsCode($target[1]);
 
@@ -76,11 +77,23 @@ class CorrectionsConverterCommand extends AbstractConverterCommand
                     $city->setMunicipality($targetMunicipality);
                     $cityManager->persistAndFlush($city);
                     echo $city->getTitle() . " is moved from '" . $oldMunicipality->getTitle() . "' to '" . $targetMunicipality->getTitle() . "'\n";
+
+                    $remove[$oldMunicipality->getId()] = $oldMunicipality;
                 }
 
-                $municipalityManager->remove($oldMunicipality);
             } else {
                 echo "Something may be wrong. One or both municipalities are NULL: " . json_encode($target) . " -- " . json_encode($olds);
+            }
+        }
+
+        foreach ($remove as $m) {
+            $cities = $cityManager->findByMunicipality($m);
+
+            if (count($cities) === 0) {
+                $municipalityManager->remove($m);
+                echo $m->getTitle() . " is removed form the database"  . "'\n";
+            } else {
+                echo $m->getTitle() . " contains still " . count($cities)  . " cities. It will not be removed. \n";
             }
         }
     }

@@ -95,6 +95,8 @@ class Correction
             $location = $this->manipulate($postcode, $location, 'OV');
         } elseif ($postcode->getMunicipality() === 'Zwartewaterland' && $postcode->getProvinceCode() === 'GE') {
             $location = $this->manipulate($postcode, $location, 'OV');
+        } elseif ($postcode->getMunicipality() === 'Scherpenzeel' && $postcode->getProvinceCode() === 'ZH') {
+            $location = $this->manipulate($postcode, $location, 'GE');
         } else {
             $location = $this->manipulate($postcode, $location, $postcode->getProvinceCode());
         }
