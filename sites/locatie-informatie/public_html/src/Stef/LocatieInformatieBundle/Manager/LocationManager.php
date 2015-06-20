@@ -6,6 +6,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Stef\LocatieInformatieBundle\Entity\City;
 use Stef\LocatieInformatieBundle\Entity\Location;
 use Stef\LocatieInformatieBundle\Entity\Municipality;
+use Stef\LocatieInformatieBundle\Entity\Street;
 use Stef\LocatieInformatieBundle\Entity\ZipCode;
 use Stef\SimpleCmsBundle\Manager\AbstractObjectManager;
 use Stef\SlugManipulation\Manipulators\SlugManipulator;
@@ -42,12 +43,24 @@ abstract class LocationManager extends AbstractObjectManager
     protected function createLocationCode($entity)
     {
         if ($entity instanceof City) {
+            if ($entity->getMunicipality() === null) {
+                var_dump(' EMPTY GEMETTEN    -    ' . $entity->getTitle());
+            }
             return 'CITY:' . $entity->getMunicipality()->getProvince()->getProvinceCode() . ':' . strtoupper(str_replace('-', '', $entity->getSlug()));
-        } elseif ($entity instanceof Municipality) {
+        } else if ($entity instanceof Municipality) {
             return 'MUNI:' . $entity->getProvince()->getProvinceCode() . ':' . strtoupper(str_replace('-', '', $entity->getSlug()));
-        } elseif ($entity instanceof ZipCode) {
+        } else if ($entity instanceof ZipCode) {
             return 'ZIP:' . $entity->getPnum() . $entity->getPchar();
+        } else if ($entity instanceof Street) {
+            if ($entity->getCity() !== null) {
+                $code = str_replace('-', '', $this->slugifier->manipulate((substr($entity->getCity()->getTitle(), 0, 5)))) . str_replace('-', '', $this->slugifier->manipulate(substr($entity->getSlug(), 0, 5))) ;
+            } else {
+                $code = str_replace('-', '', $this->slugifier->manipulate(substr($entity->getSlug(), 0, 5)));
+            }
+
+            return 'STRT:' . $code . md5($code);
         }
+
 
         return null;
     }
@@ -57,14 +70,14 @@ abstract class LocationManager extends AbstractObjectManager
      */
     public function persist($entity)
     {
-        if (empty($entity->getTitleLng()) ) {
+        if (empty($entity->getTitleLng()) || strlen($entity->getTitleLng()) < strlen($entity->getTitle()) ) {
             $entity->setTitleLng($entity->getTitle());
         }
 
-        if (empty($entity->getLocationCode())) {
+        //if (empty($entity->getLocationCode())) {
             $code = $this->createLocationCode($entity);
             $entity->setLocationCode($code);
-        }
+        //}
 
         if ($entity->getCreated() === null) {
             $entity->setCreated(new \DateTime());

@@ -2,6 +2,7 @@
 
 namespace Stef\LocatieInformatieBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,22 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class ZipCode extends Location
+class Street extends Location
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="pnum", type="smallint")
-     */
-    private $pnum;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pchar", type="string", length=2)
-     */
-    private $pchar;
-
     /**
      * @var integer
      *
@@ -48,11 +35,11 @@ class ZipCode extends Location
     private $numbertype;
 
     /**
-     * @var string
+     * @var ArrayCollection
      *
-     * @ORM\Column(name="street", type="string", length=254)
+     * @ORM\OneToMany(targetEntity="ZipCode", mappedBy="street")
      */
-    private $street;
+    protected $zipCodes;
 
     /**
      * @var City
@@ -63,36 +50,8 @@ class ZipCode extends Location
 
     function __construct()
     {
-        $this->locationType = "zipcode";
-    }
-
-    public function setTitle($title)
-    {
-        $title = trim($title);
-        $title = str_replace(' ', '', $title);
-
-        $this->pnum = (int)substr($title, 0, 4);
-        $this->pchar = substr($title, 4, 2);
-
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPnum()
-    {
-        return $this->pnum;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPchar()
-    {
-        return $this->pchar;
+        $this->locationType = "street";
+        $this->zipCodes = new ArrayCollection();
     }
 
     /**
@@ -144,22 +103,6 @@ class ZipCode extends Location
     }
 
     /**
-     * @return string
-     */
-    public function getStreet()
-    {
-        return $this->street;
-    }
-
-    /**
-     * @param string $street
-     */
-    public function setStreet($street)
-    {
-        $this->street = $street;
-    }
-
-    /**
      * @return City
      */
     public function getCity()
@@ -173,5 +116,29 @@ class ZipCode extends Location
     public function setCity($city)
     {
         $this->city = $city;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getZipCodes()
+    {
+        return $this->zipCodes;
+    }
+
+    /**
+     * @param ArrayCollection $zipCodes
+     */
+    public function setZipCodes($zipCodes)
+    {
+        $this->zipCodes = $zipCodes;
+    }
+
+    /**
+     * @param ZipCode $zipCode
+     */
+    public function addZipCode(ZipCode $zipCode)
+    {
+        $this->zipCodes->add($zipCode);
     }
 }
