@@ -25,15 +25,6 @@ class ConverterCommand extends AbstractConverterCommand
 
         $this->dispatch($qbPostcode->select('p')->groupBy('p.city')->getQuery()->getResult(), $queueManager, 'city');
         $this->dispatch($qbPostcode->select('p')->groupBy('p.cityId')->getQuery()->getResult(), $queueManager, 'city');
-
-        /*
-        $limit = 500;
-
-        for($page = 0; $page < 1000; $page++) {
-            $entities = $postcodeManager->getRepository()->findBy([], [], $limit, ($page * $limit));
-            $this->dispatch($entities, $queueManager, 'zipcode');
-        }
-        */
     }
 
     protected function dispatch($entities, $queueManager, $type)

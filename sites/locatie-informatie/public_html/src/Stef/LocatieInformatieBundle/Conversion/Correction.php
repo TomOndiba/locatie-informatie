@@ -97,6 +97,16 @@ class Correction
             $location = $this->manipulate($postcode, $location, 'OV');
         } elseif ($postcode->getMunicipality() === 'Scherpenzeel' && $postcode->getProvinceCode() === 'ZH') {
             $location = $this->manipulate($postcode, $location, 'GE');
+        } elseif ($postcode->getMunicipality() === 'Maasdonk' && $postcode->getProvinceCode() === 'NB') {
+            if ($postcode->getCity() === 'Geffen') {
+                $postcode->setMunicipality('Oss');
+            } else if ($postcode->getCity() === 'Vinkel' || $postcode->getCity() === 'Nuland') {
+                $postcode->setMunicipality('\'s‑Hertogenbosch');
+            } else {
+                var_dump('CORRECTIO ERROR:   ' . $postcode->getCity());
+            }
+
+            $location = $this->manipulate($postcode, $location, 'GE');
         } else {
             $location = $this->manipulate($postcode, $location, $postcode->getProvinceCode());
         }
@@ -118,6 +128,7 @@ class Correction
         } elseif ($location instanceof ZipCode) {
             $municipality = $this->municipalityManager->getRepository()->findOneBySlug('gem-' . $this->slugifier->manipulate($postcode->getMunicipality() . '-' . $provinceCode));
             $city = $this->cityManager->getRepository()->findOneBy(['municipality' => $municipality, 'title' => $postcode->getCity()]);
+
             $location->setCity($city);
         }
 

@@ -9,6 +9,7 @@ use Stef\LocatieInformatieBundle\Manager\CityManager;
 use Stef\LocatieInformatieBundle\Manager\MunicipalityManager;
 use Stef\LocatieInformatieBundle\Manager\PostcodeManager;
 use Stef\LocatieInformatieBundle\Manager\ProvinceManager;
+use Stef\LocatieInformatieBundle\Manager\StreetManager;
 use Stef\LocatieInformatieBundle\Manager\ZipcodeManager;
 use Stef\SlugManipulation\Manipulators\SlugManipulator;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -42,6 +43,11 @@ class ConvertExecutor extends AbstractExecutor
     protected $zipcodeManager;
 
     /**
+     * @var StreetManager
+     */
+    protected $streetManager;
+
+    /**
      * @var SlugManipulator
      */
     protected $slugifier;
@@ -52,14 +58,16 @@ class ConvertExecutor extends AbstractExecutor
      * @param MunicipalityManager $municipalityManager
      * @param CityManager $cityManager
      * @param ZipcodeManager $zipcodeManager
+     * @param StreetManager $streetManager
      */
-    function __construct(PostcodeManager $postcodeManager, ProvinceManager $provinceManager, MunicipalityManager $municipalityManager, CityManager $cityManager, ZipcodeManager $zipcodeManager)
+    function __construct(PostcodeManager $postcodeManager, ProvinceManager $provinceManager, MunicipalityManager $municipalityManager, CityManager $cityManager, ZipcodeManager $zipcodeManager, StreetManager $streetManager)
     {
         $this->postcodeManager = $postcodeManager;
         $this->provinceManager = $provinceManager;
         $this->municipalityManager = $municipalityManager;
         $this->cityManager = $cityManager;
         $this->zipcodeManager = $zipcodeManager;
+        $this->streetManager = $streetManager;
     }
 
     public function getName()
@@ -79,11 +87,11 @@ class ConvertExecutor extends AbstractExecutor
         $converter = null;
 
         if ($targetLocationType === 'municipality') {
-            $converter = new MunicipalityConverter($this->postcodeManager, $this->provinceManager, $this->municipalityManager, $this->cityManager, $this->zipcodeManager, new SlugManipulator());
+            $converter = new MunicipalityConverter($this->postcodeManager, $this->provinceManager, $this->municipalityManager, $this->cityManager, $this->zipcodeManager, $this->streetManager, new SlugManipulator());
         } elseif ($targetLocationType === 'city') {
-            $converter = new CityConverter($this->postcodeManager, $this->provinceManager, $this->municipalityManager, $this->cityManager, $this->zipcodeManager, new SlugManipulator());
+            $converter = new CityConverter($this->postcodeManager, $this->provinceManager, $this->municipalityManager, $this->cityManager, $this->zipcodeManager, $this->streetManager, new SlugManipulator());
         } elseif ($targetLocationType === 'zipcode') {
-            $converter = new ZipcodeConverter($this->postcodeManager, $this->provinceManager, $this->municipalityManager, $this->cityManager, $this->zipcodeManager, new SlugManipulator());
+            $converter = new ZipcodeConverter($this->postcodeManager, $this->provinceManager, $this->municipalityManager, $this->cityManager, $this->zipcodeManager, $this->streetManager, new SlugManipulator());
         }
 
         if ($converter != null) {

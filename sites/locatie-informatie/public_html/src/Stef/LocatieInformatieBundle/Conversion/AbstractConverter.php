@@ -7,6 +7,7 @@ use Stef\LocatieInformatieBundle\Manager\CityManager;
 use Stef\LocatieInformatieBundle\Manager\MunicipalityManager;
 use Stef\LocatieInformatieBundle\Manager\PostcodeManager;
 use Stef\LocatieInformatieBundle\Manager\ProvinceManager;
+use Stef\LocatieInformatieBundle\Manager\StreetManager;
 use Stef\LocatieInformatieBundle\Manager\ZipcodeManager;
 use Stef\SlugManipulation\Manipulators\SlugManipulator;
 
@@ -38,6 +39,11 @@ abstract class AbstractConverter
     protected $zipcodeManager;
 
     /**
+     * @var StreetManager
+     */
+    protected $streetManager;
+
+    /**
      * @var SlugManipulator
      */
     protected $slugifier;
@@ -48,15 +54,17 @@ abstract class AbstractConverter
      * @param MunicipalityManager $municipalityManager
      * @param CityManager $cityManager
      * @param ZipcodeManager $zipcodeManager
+     * @param StreetManager $streetManager
      * @param SlugManipulator $slugifier
      */
-    function __construct(PostcodeManager $postcodeManager, ProvinceManager $provinceManager, MunicipalityManager $municipalityManager, CityManager $cityManager, ZipcodeManager $zipcodeManager, SlugManipulator $slugifier)
+    function __construct(PostcodeManager $postcodeManager, ProvinceManager $provinceManager, MunicipalityManager $municipalityManager, CityManager $cityManager, ZipcodeManager $zipcodeManager, StreetManager $streetManager, SlugManipulator $slugifier)
     {
         $this->postcodeManager = $postcodeManager;
         $this->provinceManager = $provinceManager;
         $this->municipalityManager = $municipalityManager;
         $this->cityManager = $cityManager;
         $this->zipcodeManager = $zipcodeManager;
+        $this->streetManager = $streetManager;
         $this->slugifier = $slugifier;
     }
 

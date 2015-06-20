@@ -20,6 +20,12 @@ class CityConverter extends AbstractConverter
         $correction->setCityManager($this->cityManager);
         $correction->setProvinceManager($this->provinceManager);
 
+        if ($postcode->getCity() === 'Geffen' && $postcode->getProvinceCode() === 'NB') {
+            $postcode->setMunicipality('Oss');
+        } else if (($postcode->getCity() === 'Vinkel' || $postcode->getCity() === 'Nuland') && $postcode->getProvinceCode() === 'NB') {
+            $postcode->setMunicipality('\'s‑Hertogenbosch');
+        }
+
         $slug = $this->slugifier->manipulate($postcode->getCity());
         $municipality = $this->municipalityManager->getRepository()->findOneByTitle($postcode->getMunicipality());
 
