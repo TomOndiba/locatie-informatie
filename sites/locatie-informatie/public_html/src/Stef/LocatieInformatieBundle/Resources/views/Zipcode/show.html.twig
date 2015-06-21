@@ -1,0 +1,99 @@
+{% extends "StefLocatieInformatieBundle::freelayout.html.twig" %}
+
+{% block htmlbody %}
+    <div id="ww">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 centered">
+                    <h1>{{ page.title }}</h1>
+                    <p>{{ page.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pt">
+        <div class="row mt">
+            <div class="col-lg-12">
+                {% if zipcode.numbertype == 'odd' %}
+                    <h2>Oneven nummers</h2>
+                    <p>Deze postcode is onderdeel van de <strong>{{ zipcode.street }}</strong> in de plaats {{ zipcode.city.title }}. Binnen deze postcode vinden we maximaal {{ (zipcode.maxnumber - zipcode.minnumber ) / 2}} huizen met een oneven huisnummer. Volgens onze gegevens is het laagste huisnummer {{ zipcode.minnumber }} en het hoogste {{ zipcode.maxnumber }}.</p>
+                {% elseif zipcode.numbertype == 'even' %}
+                    <h2>Even nummers</h2>
+                    <p>De <strong>{{ zipcode.street }}</strong> in <strong>{{ zipcode.city.title }}</strong> heeft (voor een deel) de postcode <strong>{{ zipcode.pnum }} {{ zipcode.pchar }}</strong>. Volgens onze gegevens vinden we hier alle even huisnummers lopend van {{ zipcode.minnumber }} tot en met {{ zipcode.maxnumber }}. Als alle huisnummers bestaan gaat het om maximaal {{ (zipcode.maxnumber - zipcode.minnumber ) / 2}} adressen die deze postcode kunnen gebruiken.</p>
+                {% elseif zipcode.numbertype == 'mixed' %}
+                    <h2>Huisnummers</h2>
+                    <p>Voor de postcode <strong>{{ zipcode.pnum }} {{ zipcode.pchar }}</strong> zijn maximaal {{ zipcode.maxnumber - zipcode.minnumber }} adressen bekend. Het laagste adres is <strong>{{ zipcode.street }} {{ zipcode.minnumber }}</strong>. Het hoogste adres is <strong>{{ zipcode.street }} {{ zipcode.maxnumber }}</strong>. Uiteraard zijn al deze huizen te vinden in de prachtige plaats {{ zipcode.city.title }}.</p>
+                {% endif %}
+            </div>
+
+            {% if zipcode.pchar[0:1] == zipcode.pchar[1:1] %}
+                <div class="col-lg-12">
+                    <h2>Letters gelijk</h2>
+                    <p>Je had het waarschijnlijk al gezien, maar er is hier iets leuks aan de hand. De postcode {{ zipcode.title }} heeft twee dezelfde letters. Namelijk <strong>{{ zipcode.pchar }}</strong>. Binnen het postcodegebied van {{ zipcode.pnum }} komt het maximaal 26 keer voor dat er twee dezelfde letters gebruikt worden. Niet heel schokkend, maar wel een leuk feitje.</p>
+                </div>
+            {% endif %}
+
+            <div class="col-lg-12">
+                <h2>{{ zipcode.pnum }} {{ zipcode.pchar }} in cijfers</h2>
+
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <td><strong>Straat</strong></td>
+                        <td>{{ zipcode.street }}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Huisnummers</strong></td>
+                        <td>{{ zipcode.minnumber }} t/m {{ zipcode.maxnumber }}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Postcode</strong></td>
+                        <td>{{ zipcode.pnum }} {{ zipcode.pchar }}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Postcodegebied</strong></td>
+                        <td>{{ zipcode.pnum }}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Karakters</strong></td>
+                        <td>{{ zipcode.pchar }}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Plaats</strong></td>
+                        <td>{{ zipcode.city.title }}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Gemeente</strong></td>
+                        <td>{{ zipcode.city.municipality.titleLng }}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Provincie</strong></td>
+                        <td>{{ zipcode.city.municipality.province.title }}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col-lg-12">
+                <h2>Adreslabel</h2>
+                <p>Voor het versturen van een brief of pakketje is een goed geschreven adreslabel een absolute must. Mocht je twijfelen hoe je je briefkaart het beste kan opstellen, helpen wij je hier graag een handje aan de hand van het volgende adres.</p>
+                <p>
+                    Familie J. Doe</br>
+                    {{ zipcode.street }}&nbsp;{{ zipcode.minnumber }}</br>
+                    {{ zipcode.pnum }}&nbsp;{{ zipcode.pchar }}&nbsp;&nbsp;{{ zipcode.city.title|upper }}
+                </p>
+                <p>Let op de twee spaties tussen de postcode en de plaats en dat de plaats altijd in hoofdletters geschreven moet worden.</p>
+            </div>
+
+            <div class="col-lg-12">
+                {{ page.body|raw }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
