@@ -1,0 +1,34 @@
+stef_locatie_informatie_zipcode_redirect_human_format_1:
+    path:     /postcode/{pnum}-{pchar}
+    defaults: { _controller: StefLocatieInformatieBundle:Zipcode:redirect }
+    requirements:
+       pnum: \d{4}
+       pchar: ^[A-Za-z]{2}
+
+stef_locatie_informatie_zipcode_redirect_human_format_2:
+    path:     /postcode/{pnum} {pchar}
+    defaults: { _controller: StefLocatieInformatieBundle:Zipcode:redirect }
+    requirements:
+       pnum: \d{4}
+       pchar: ^[A-Za-z]{2}
+
+stef_locatie_informatie_zipcode_redirect_human_format_3:
+    path:     /postcode/{pnum}%20{pchar}
+    defaults: { _controller: StefLocatieInformatieBundle:Zipcode:redirect }
+    requirements:
+       pnum: \d{4}
+       pchar: ^[A-Za-z]{2}
+
+stef_locatie_informatie_zipcode_redirect_uppercase_format:
+    path:     /postcode/{pnum}{pchar}
+    defaults: { _controller: StefLocatieInformatieBundle:Zipcode:redirect }
+    requirements:
+       pnum: \d{4}
+       pchar: ^[A-Z]{2}
+
+stef_locatie_informatie_zipcode_info:
+    path:     /postcode/{pnum}{pchar}
+    defaults: { _controller: StefLocatieInformatieBundle:Zipcode:info }
+    requirements:
+       pnum: \d{4}
+       pchar: ^[a-z]{2}

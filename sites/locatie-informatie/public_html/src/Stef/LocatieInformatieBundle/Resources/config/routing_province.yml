@@ -1,0 +1,7 @@
+stef_locatie_informatie_province_info_index:
+    path:     /provincie
+    defaults: { _controller: StefLocatieInformatieBundle:StaticPage:province }
+
+stef_locatie_informatie_province_info:
+    path:     /provincie/{provinceSlug}
+    defaults: { _controller: StefLocatieInformatieBundle:StaticPage:province }

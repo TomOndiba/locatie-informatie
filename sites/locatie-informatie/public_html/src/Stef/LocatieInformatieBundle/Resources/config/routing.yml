@@ -1,51 +1,17 @@
+stef_locatie_informatie_1:
+    resource: "@StefLocatieInformatieBundle/Resources/config/routing_indexpages.yml"
+
+stef_locatie_informatie_2:
+    resource: "@StefLocatieInformatieBundle/Resources/config/routing_province.yml"
+
+stef_locatie_informatie_3:
+    resource: "@StefLocatieInformatieBundle/Resources/config/routing_zipcodes.yml"
+
 stef_locatie_informatie_homepage:
     path:     /
     defaults: { _controller: StefLocatieInformatieBundle:Default:index }
-
-stef_locatie_informatie_index_cities_by_char:
-    path:     /plaatsen-in-nederland/{char}
-    defaults: { _controller: StefLocatieInformatieBundle:Default:indexCities }
-
-stef_locatie_informatie_index_municipalities_by_char:
-    path:     /gemeenten-in-nederland/{char}
-    defaults: { _controller: StefLocatieInformatieBundle:Default:indexMunicipalities }
-
-stef_locatie_informatie_index_municipalities_by_char:
-    path:     /gemeenten-in-nederland/{char}
-    defaults: { _controller: StefLocatieInformatieBundle:Default:indexMunicipalities }
-
-stef_locatie_informatie_index_provinces_by_char:
-    path:     /provincies-in-nederland/{char}
-    defaults: { _controller: StefLocatieInformatieBundle:Default:indexProvinces }
-
-stef_locatie_informatie_index_cities:
-    path:     /plaatsen-in-nederland
-    defaults: { _controller: StefLocatieInformatieBundle:Default:indexCities }
-
-stef_locatie_informatie_index_municipalities:
-    path:     /gemeenten-in-nederland
-    defaults: { _controller: StefLocatieInformatieBundle:Default:indexMunicipalities }
-
-stef_locatie_informatie_index_municipalities_by_province:
-    path:     /gemeenten-per-provincie/{provinceSlug}
-    defaults: { _controller: StefLocatieInformatieBundle:Default:indexMunicipalitiesByProvince }
-
-stef_locatie_informatie_index_municipalities_by_province_indexpage:
-    path:     /gemeenten-per-provincie
-    defaults: { _controller: StefLocatieInformatieBundle:Default:indexMunicipalitiesByProvince }
-
-stef_locatie_informatie_index_provinces:
-    path:     /provincies-in-nederland
-    defaults: { _controller: StefLocatieInformatieBundle:Default:indexProvinces }
 
 stef_locatie_informatie_locaties_or_lokaties:
     path:     /locatie-of-lokatie
     defaults: { _controller: StefLocatieInformatieBundle:StaticPage:locatieLokatie }
 
-stef_locatie_informatie_province_info_index:
-    path:     /provincie
-    defaults: { _controller: StefLocatieInformatieBundle:StaticPage:province }
-
-stef_locatie_informatie_province_info:
-    path:     /provincie/{provinceSlug}
-    defaults: { _controller: StefLocatieInformatieBundle:StaticPage:province }

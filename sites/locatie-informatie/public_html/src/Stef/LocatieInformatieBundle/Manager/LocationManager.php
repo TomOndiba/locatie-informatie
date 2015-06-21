@@ -122,4 +122,11 @@ abstract class LocationManager extends AbstractObjectManager
 
         return $entity;
     }
+
+    public function findOneBySlug($slug)
+    {
+        $entity = $this->om->getRepository($this->repoName)->findOneBySlug($slug);
+
+        return $entity;
+    }
 }
