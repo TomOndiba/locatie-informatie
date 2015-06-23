@@ -41,4 +41,17 @@ class ZipcodeManager extends LocationManager
 
         return $entity;
     }
+
+    public function findByPnum($pnum)
+    {
+        $repo = $this->om->getRepository($this->repoName);
+
+        $query = $repo->createQueryBuilder('z')
+            ->where('z.pnum = :pnum')
+            ->setParameter('pnum', $pnum)
+            ->orderBy('z.slug', 'ASC')
+            ->getQuery();
+
+        return $query->getResult();
+    }
 }
