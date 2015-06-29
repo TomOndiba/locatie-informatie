@@ -41,7 +41,7 @@ abstract class AbstractConverterCommand extends ContainerAwareCommand
 
     protected function loadCsv()
     {
-        $file = new File('/home/vagrant/sites/locatie-informatie/public_html/src/Stef/LocatieInformatieBundle/Resources/cbs_data/municiplicity_province2015.csv');
+        $file = new File(dirname(__FILE__) . '/../Resources/cbs_data/municiplicity_province2015.csv');
         $header = [];
         $rowno = 0;
         $data = [];
