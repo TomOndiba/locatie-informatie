@@ -27,8 +27,6 @@ class ZipConverterCommand extends AbstractConverterCommand
         for($page = 0; $page < 1000; $page++) {
             $entities = $postcodeManager->getRepository()->findBy(['provinceCode' => $provinceCode], [], $limit, ($page * $limit));
             $this->dispatch($entities, $queueManager, 'zipcode');
-            exit;
-            var_dump(count($entities) . ' -- PAGE -- ' . $page);
 
             if ($page > 100 && count($entities) === 0) {
                 echo "\n\n BREAK \n\n";
