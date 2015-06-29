@@ -45,4 +45,26 @@ class ZipcodeController extends BaseController
             'page' => $page
         ]);
     }
+
+    public function indexAction(Request $request)
+    {
+        $manager = $this->getZipcodeManager();
+        $zipcodes = [];
+        $letters = range('a', 'z');
+
+        foreach ($letters as $letter) {
+            $zipcodes =  array_merge($zipcodes, $manager->findByPchar(strtoupper($letter . $letter)));
+        }
+
+        ksort($zipcodes);
+
+        $page = new Page();
+        $page->setTitle('Overzicht Nederlandse postcodes');
+        $page->setDescription('Bekijk hier ons volledige overzicht van postcodes! Wij hebben ons best gedaan om er zoveel mogelijk te verzamelen!');
+
+        return $this->render('StefLocatieInformatieBundle:Zipcode:index.html.twig', [
+            'zipcodes' => $zipcodes,
+            'page' => $page
+        ]);
+    }
 }

@@ -38,3 +38,7 @@ stef_locatie_informatie_zipcode_showarea:
     defaults: { _controller: StefLocatieInformatieBundle:Zipcode:showarea }
     requirements:
        pnum: \d{4}
+
+stef_locatie_informatie_zipcode_index:
+    path:     /postcode
+    defaults: { _controller: StefLocatieInformatieBundle:Zipcode:index }

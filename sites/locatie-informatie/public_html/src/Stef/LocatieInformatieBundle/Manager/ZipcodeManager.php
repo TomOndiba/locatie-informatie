@@ -54,4 +54,24 @@ class ZipcodeManager extends LocationManager
 
         return $query->getResult();
     }
+
+    public function findByPchar($pchar, $limit = 100)
+    {
+        $repo = $this->om->getRepository($this->repoName);
+
+        $query = $repo->createQueryBuilder('z')
+            ->where('z.pchar = :pchar')
+            ->setParameter('pchar', $pchar)
+            ->orderBy('z.slug', 'ASC')
+            ->setMaxResults($limit)
+            ->getQuery();
+
+        $result = [];
+
+        foreach ($query->getResult() as $z) {
+            $result[$z->getSlug()] = $z;
+        }
+
+        return $result;
+    }
 }
