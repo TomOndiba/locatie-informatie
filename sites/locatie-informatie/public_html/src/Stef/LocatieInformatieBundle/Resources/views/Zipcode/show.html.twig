@@ -55,7 +55,7 @@
 
                     <tr>
                         <td><strong>Postcodegebied</strong></td>
-                        <td>{{ zipcode.pnum }}</td>
+                        <td><a href="{{ path('stef_locatie_informatie_zipcode_showarea', {'pnum': zipcode.pnum}) }}" title="Postcode {{ zipcode.pnum }}">{{ zipcode.pnum }}</a></td>
                     </tr>
 
                     <tr>

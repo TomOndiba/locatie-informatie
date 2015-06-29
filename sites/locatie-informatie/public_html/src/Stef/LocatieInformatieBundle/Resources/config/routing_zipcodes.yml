@@ -26,9 +26,19 @@ stef_locatie_informatie_zipcode_redirect_uppercase_format:
        pnum: \d{4}
        pchar: ^[A-Z]{2}
 
-stef_locatie_informatie_zipcode_info:
+stef_locatie_informatie_zipcode_show:
     path:     /postcode/{pnum}{pchar}
-    defaults: { _controller: StefLocatieInformatieBundle:Zipcode:info }
+    defaults: { _controller: StefLocatieInformatieBundle:Zipcode:show }
     requirements:
        pnum: \d{4}
        pchar: ^[a-z]{2}
+
+stef_locatie_informatie_zipcode_showarea:
+    path:     /postcode/{pnum}
+    defaults: { _controller: StefLocatieInformatieBundle:Zipcode:showarea }
+    requirements:
+       pnum: \d{4}
+
+stef_locatie_informatie_zipcode_index:
+    path:     /postcode
+    defaults: { _controller: StefLocatieInformatieBundle:Zipcode:index }
