@@ -55,7 +55,7 @@ class ZipcodeManager extends LocationManager
         return $query->getResult();
     }
 
-    public function findByPchar($pchar, $limit = 100)
+    public function findByPchar($pchar, $limit = 25)
     {
         $repo = $this->om->getRepository($this->repoName);
 
