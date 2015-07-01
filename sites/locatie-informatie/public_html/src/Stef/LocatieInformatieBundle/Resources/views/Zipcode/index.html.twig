@@ -1,5 +1,5 @@
 {% extends "StefLocatieInformatieBundle::freelayout.html.twig" %}
-{% set colsize = (zipcodes|length / 3)|round(0, 'ceil') %}
+{% set colsize = (zipcodes|length / 2)|round(0, 'ceil') %}
 {% set actcolsize = 0 %}
 
 {% block htmlbody %}
@@ -27,15 +27,17 @@
                 <p>Wij hebben ons best gedaan om de gegevens zo juist mogelijk weer te geven. Mochten er onjuistheden zijn ontstaan of staat uw geliefde postcode per abuis bij een verkeerde gemeente ingedeeld, laat het ons weten. Want niets is zo hinderlijk als een incomplete database.</p>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <ul>
                     {% for zip in zipcodes %}
-                        <li><a href="{{ path('stef_locatie_informatie_zipcode_show', {'pnum': zip.pnum, 'pchar': zip.pchar|lower}) }}">{{ zip.city.title }} {{ zip.pnum }} {{ zip.pchar }}</a> ({{ zip.city.municipality.titleLng }})</li>
-                        {% set actcolsize = actcolsize + 1 %}
+                        {% if zip is not null and zip.city is not null%}
+                            <li><a href="{{ path('stef_locatie_informatie_zipcode_show', {'pnum': zip.pnum, 'pchar': zip.pchar|lower}) }}">{{ zip.city.title }} {{ zip.pnum }} {{ zip.pchar }}</a> ({{ zip.city.municipality.titleLng }})</li>
+                            {% set actcolsize = actcolsize + 1 %}
 
-                        {% if actcolsize == colsize %}
+                            {% if actcolsize == colsize %}
                             {% set actcolsize = 0 %}
-                            </ul></div><div class="col-lg-4"><ul>
+                        </ul></div><div class="col-lg-6"><ul>
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                 </ul>
