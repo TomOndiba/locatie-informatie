@@ -1,0 +1,3 @@
+stef_locatie_informatie_city_show:
+    path:     /plaats/{slug}
+    defaults: { _controller: StefLocatieInformatieBundle:Municipality:show }

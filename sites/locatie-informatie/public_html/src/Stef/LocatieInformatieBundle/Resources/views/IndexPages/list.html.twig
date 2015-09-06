@@ -31,7 +31,18 @@
                 <div class="col-lg-4">
                     <ul>
                         {% for item in items %}
-                            <li><a href="{{ path('stef_locatie_informatie_municipality_show', item.slug }}">{{ item.titleLng }}</a></li>
+                            {% if item.locationType == 'municipality' %}
+                                <li><a href="{{ path('stef_locatie_informatie_municipality_show', {'slug': item.slug}) }}">{{ item.titleLng }}</a></li>
+                            {% endif %}
+
+                            {% if item.locationType == 'city' %}
+                                <li><a href="{{ path('stef_locatie_informatie_city_show', {'slug': item.slug}) }}">{{ item.titleLng }}</a></li>
+                            {% endif %}
+
+                            {% if item.locationType == 'province' %}
+                                <li><a href="{{ path('stef_locatie_informatie_province_info', {'provinceSlug': item.slug}) }}">{{ item.titleLng }}</a></li>
+                            {% endif %}
+
                             {% set actcolsize = actcolsize + 1 %}
 
                             {% if actcolsize == colsize %}

@@ -10,6 +10,8 @@ stef_locatie_informatie_3:
 stef_locatie_informatie_4:
     resource: "@StefLocatieInformatieBundle/Resources/config/routing_municipalities.yml"
 
+stef_locatie_informatie_5:
+    resource: "@StefLocatieInformatieBundle/Resources/config/routing_cities.yml"
 
 stef_locatie_informatie_homepage:
     path:     /
