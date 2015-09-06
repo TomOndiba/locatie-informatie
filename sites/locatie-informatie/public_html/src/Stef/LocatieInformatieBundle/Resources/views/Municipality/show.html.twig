@@ -1,0 +1,49 @@
+{% extends "StefLocatieInformatieBundle::freelayout.html.twig" %}
+
+{% block htmlbody %}
+    <div id="ww">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 centered">
+                    <h1>{{ page.title }}</h1>
+                    <p>{{ page.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pt">
+        <div class="row mt">
+            <div class="col-lg-12">
+                {% if municipality.title == municipality.province.title %}
+                    <h2>Gemeente & provincie</h2>
+                    <p>De {{ municipality.titleLng }} is een van de weinige gemeenten in Nederland die dezelfde naam draagt als de provincie waar ze in liggen. Vaak geeft men aan of men hier de gemeente of de provincie wordt bedoelt.</p>
+                {% endif %}
+
+                {% if municipality.cities|length == 1 %}
+                    <h2>Enkele plaatsnaam binnen gemeente</h2>
+                    <p>De plaats <strong>{{ municipality.cities[0].title }} is de enige plaatsnaam binnen de gemeente {{ municipality.title }}</strong>. Dat is tegenwoordig een unicum, aangezien de meeste gemeenten door fusies de laatste jaren steeds groter zijn geworden.</p>
+                {% endif %}
+
+                {% if municipality.cities|length == 2 %}
+                    <h2>Eén gemeente, twee plaatsen</h2>
+                    <p><strong>{{ municipality.titleLng }} heeft niet 1 maar 2 plaatsen binnen de gemeentegrens waarvoor het de belangen moet behartigen. Naast <strong>{{ municipality.cities[0].title }}</strong> (met {{ municipality.cities[0].zipcodes|length }} verschillende postcodes) is er ook nog {{ municipality.cities[1].title }}. Binnen de gemeente hebben beide plaatsen <strong>{{ municipality.cities[0].zipcodes|length + municipality.cities[1].zipcodes|length }} postcodes</strong>.</p>
+                {% endif %}
+
+                {% if municipality.cities|length == 3 %}
+                    <h2>Drie is teveel</h2>
+                    <p>Daar dachten ze bij de <strong>{{ municipality.titleLng }}</strong> heel anders over. De in de provincie {{ municipality.province.title }} gelegen gemeente regelt de voorzieningen van de drie plaatsen <strong>{{ municipality.cities[0].title }}</strong>, <strong>{{ municipality.cities[1].title }}</strong> en <strong>{{ municipality.cities[2].title }}</strong>. Samen hebben ze maar liefst {{  municipality.cities[0].zipcodes|length + municipality.cities[1].zipcodes|length + municipality.cities[2].zipcodes|length }} postcodes om een ouderwetse brief naar te versturen.</p>
+                {% endif %}
+
+                {% if municipality.cities|length > 3 %}
+                    <h2>Plaatsen binnen {{ municipality.titleLng }}</h2>
+                    <p>Binnen de {{ municipality.titleLng }} zijn er {{ municipality.cities|length }} bekend. Veelal is dit het gevolg van herindelingen en fusies tussen verschillende gemeenten. Het komt in bepaalde gebieden voor dat een gemeente een relatie groot gebied bestrijkt, maar daar is de bevolkingsdichtheid dan ook niet zo groot.</p>
+                    <p>Voor {{ municipality.title }} (in de altijd bruisende provincie {{ municipality.province.title }}) vinden wij in elk geval de plaatsen <strong>{{ municipality.cities[1].title }}</strong> en <strong>{{ municipality.cities[2].title }}</strong>.</p>
+                {% endif %}
+
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

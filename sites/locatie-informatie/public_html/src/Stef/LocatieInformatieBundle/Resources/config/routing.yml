@@ -7,6 +7,10 @@ stef_locatie_informatie_2:
 stef_locatie_informatie_3:
     resource: "@StefLocatieInformatieBundle/Resources/config/routing_zipcodes.yml"
 
+stef_locatie_informatie_4:
+    resource: "@StefLocatieInformatieBundle/Resources/config/routing_municipalities.yml"
+
+
 stef_locatie_informatie_homepage:
     path:     /
     defaults: { _controller: StefLocatieInformatieBundle:Default:index }

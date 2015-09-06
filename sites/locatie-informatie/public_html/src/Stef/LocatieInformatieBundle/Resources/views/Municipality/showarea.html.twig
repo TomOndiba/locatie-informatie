@@ -1,0 +1,51 @@
+{% extends "StefLocatieInformatieBundle::freelayout.html.twig" %}
+{% set colsize = (zipcodes|length / 3)|round(0, 'ceil') %}
+{% set actcolsize = 0 %}
+
+{% block htmlbody %}
+    <div id="ww">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 centered">
+                    <h1>{{ page.title }}</h1>
+                    <p>{{ page.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pt">
+        <div class="row mt">
+            <div class="col-lg-12">
+                <p>
+                    In de <strong>provincie {{ zipcode.city.municipality.province.title }}</strong> vind men de <strong>gemeente {{ zipcode.city.municipality.title }}</strong>. Wij hebben binnen deze gemeente maar liefst {{ zipcodes|length }} postcodes gevonden binnnen <strong>postcodegebied {{ zipcode.pnum }}</strong>.
+                </p>
+
+                <p>
+                    Mocht er onverhoopt toch iets niet goed staan, laat het ons weten. Immers ben jij als ambassadeur van jouw stad, provincie postcodegebied de absolute kenner van jouw omgeving!
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt">
+            <div class="col-lg-12">
+                <h2>Postcode overzicht</h2>
+                <p>Hieronder staat het volledige overzicht van alle {{ zipcodes|length }} postcodes in postcodegebied {{ zipcode.pnum }}.</p>
+            </div>
+
+            <div class="col-lg-4">
+                <ul>
+                    {% for zip in zipcodes %}
+                        <li><a href="{{ path('stef_locatie_informatie_zipcode_show', {'pnum': zip.pnum, 'pchar': zip.pchar|lower}) }}">{{ zip.city.title }} {{ zip.pnum }} {{ zip.pchar }}</a> ({{ zip.street }})</li>
+                        {% set actcolsize = actcolsize + 1 %}
+
+                        {% if actcolsize == colsize %}
+                            {% set actcolsize = 0 %}
+                            </ul></div><div class="col-lg-4"><ul>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

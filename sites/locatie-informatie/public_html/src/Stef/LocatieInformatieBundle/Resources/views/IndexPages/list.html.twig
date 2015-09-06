@@ -31,7 +31,7 @@
                 <div class="col-lg-4">
                     <ul>
                         {% for item in items %}
-                            <li>{{ item.title }}</li>
+                            <li><a href="{{ path('stef_locatie_informatie_municipality_show', item.slug }}">{{ item.titleLng }}</a></li>
                             {% set actcolsize = actcolsize + 1 %}
 
                             {% if actcolsize == colsize %}
@@ -39,7 +39,6 @@
                                 </ul></div>
                                 <div class="col-lg-4"><ul>
                             {% endif %}
-
                         {% endfor %}
                     </ul>
                 </div>
