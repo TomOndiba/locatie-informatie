@@ -8,6 +8,9 @@
 <h2>Kies je provincie</h2>
 <p>Kies uit de onderstaande lijst een van de 12 provincies om meer te weten te komen over een provincie die je nog niet zo goed kent, maar misschien ook wel om te zien waarom jouw eigen provincie zo gaaf is!</p>
 <p>
+<center>
+    {% include 'StefSimpleCmsBundle:GoogleAdsense:728x90.html.twig' with {'pubid': 'ca-pub-1143505562670221', 'slotid': '4350506819'} %}
+</center>
     <ol>
         <li><a href="{{ path('stef_locatie_informatie_province_info', {'provinceSlug' : 'zuid-holland'}) }}">Zuid-Holland</a></li>
         <li><a href="{{ path('stef_locatie_informatie_province_info', {'provinceSlug' : 'noord-holland'}) }}">Noord-Holland</a></li>
@@ -22,4 +25,7 @@
         <li><a href="{{ path('stef_locatie_informatie_province_info', {'provinceSlug' : 'noord-brabant'}) }}">Noord-Brabant</a></li>
         <li><a href="{{ path('stef_locatie_informatie_province_info', {'provinceSlug' : 'drenthe'}) }}">Drenthe</a></li>
     </ol>
+<center>
+    {% include 'StefSimpleCmsBundle:GoogleAdsense:728x90.html.twig' with {'pubid': 'ca-pub-1143505562670221', 'slotid': '4350506819'} %}
+</center>
 </p>
