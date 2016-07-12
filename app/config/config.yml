@@ -78,3 +78,13 @@ fos_user:
     firewall_name:  main
     user_class:     Stefanius\SimpleCmsBundle\Entity\User
 
+leezy_pheanstalk:
+    pheanstalks:
+        primary:
+            server: localhost
+            default: true
+
+tree_house_worker:
+    queue:
+        server: localhost
+    pheanstalk: leezy.pheanstalk

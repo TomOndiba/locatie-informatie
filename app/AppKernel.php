@@ -32,6 +32,9 @@ class AppKernel extends Kernel
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             /* WhiteOctober */
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
+
+            new Leezy\PheanstalkBundle\LeezyPheanstalkBundle(),
+            new TreeHouse\WorkerBundle\TreeHouseWorkerBundle(),
             /* Stefanius */
             new Stefanius\SimpleCmsBundle\StefSimpleCmsBundle(),
             new Stefanius\LocatieInformatieBundle\StefLocatieInformatieBundle(),
