@@ -34,7 +34,7 @@ class AppKernel extends Kernel
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
             /* Stefanius */
             new Stefanius\SimpleCmsBundle\StefSimpleCmsBundle(),
-            new Stef\LocatieInformatieBundle\StefLocatieInformatieBundle(),
+            new Stefanius\LocatieInformatieBundle\StefLocatieInformatieBundle(),
             new Stefanius\RedirectTrailingSlashBundle\StefaniusRedirectTrailingSlashBundle(),
         ];
 

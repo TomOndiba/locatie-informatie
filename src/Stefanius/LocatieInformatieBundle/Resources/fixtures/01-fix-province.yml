@@ -1,0 +1,193 @@
+Stefanius\LocatieInformatieBundle\Entity\Province:
+  prov-1:
+    id: 1
+    slug: zuid-holland
+    title: Zuid-Holland
+    title_lng: Zuid-Holland
+    rdX: 0
+    rdY: 0
+    lat: 0
+    lng: 0
+    locationCode: PROV00001
+    provinceCode: ZH
+    sourceLocationTypeId: 1
+    locationDetail: unknown
+    cbsCode: 28
+    created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+    modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+  prov-2:
+    id: 2
+    slug: noord-holland
+    title: Noord-Holland
+    title_lng: Noord-Holland
+    rdX: 0
+    rdY: 0
+    lat: 0
+    lng: 0
+    locationCode: PROV00002
+    provinceCode: NH
+    sourceLocationTypeId: 2
+    locationDetail: unknown
+    cbsCode: 27
+    created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+    modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+  prov-3:
+    id: 3
+    slug: zeeland
+    title: Zeeland
+    title_lng: Zeeland
+    rdX: 0
+    rdY: 0
+    lat: 0
+    lng: 0
+    locationCode: PROV00003
+    provinceCode: ZE
+    sourceLocationTypeId: 3
+    locationDetail: unknown
+    cbsCode: 29
+    created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+    modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+  prov-4:
+    id: 4
+    slug: limburg
+    title: Limburg
+    title_lng: Limburg
+    rdX: 0
+    rdY: 0
+    lat: 0
+    lng: 0
+    locationCode: PROV00004
+    provinceCode: LI
+    sourceLocationTypeId: 4
+    locationDetail: unknown
+    cbsCode: 31
+    created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+    modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+  prov-5:
+    id: 5
+    slug: gelderland
+    title: Gelderland
+    title_lng: Gelderland
+    rdX: 0
+    rdY: 0
+    lat: 0
+    lng: 0make
+    locationCode: PROV00005
+    provinceCode: GE
+    sourceLocationTypeId: 5
+    locationDetail: unknown
+    cbsCode: 25
+    created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+    modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+  prov-6:
+    id: 6
+    slug: flevoland
+    title: Flevoland
+    title_lng: Flevoland
+    rdX: 0
+    rdY: 0
+    lat: 0
+    lng: 0
+    locationCode: PROV00006
+    provinceCode: FL
+    sourceLocationTypeId: 6
+    locationDetail: unknown
+    cbsCode: 24
+    created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+    modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+  prov-7:
+    id: 7
+    slug: utrecht
+    title: Utrecht
+    title_lng: Utrecht
+    rdX: 0
+    rdY: 0
+    lat: 0
+    lng: 0
+    locationCode: PROV00007
+    provinceCode: UT
+    sourceLocationTypeId: 7
+    locationDetail: unknown
+    cbsCode: 26
+    created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+    modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+  prov-8:
+    id: 8
+    slug: friesland
+    title: Friesland
+    title_lng: Friesland
+    rdX: 0
+    rdY: 0
+    lat: 0
+    lng: 0
+    locationCode: PROV00008
+    provinceCode: FR
+    sourceLocationTypeId: 8
+    locationDetail: unknown
+    cbsCode: 21
+    created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+    modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+  prov-9:
+    id: 9
+    slug: overijsel
+    title: Overijsel
+    title_lng: Overijsel
+    rdX: 0
+    rdY: 0
+    lat: 0
+    lng: 0
+    locationCode: PROV00009
+    provinceCode: OV
+    sourceLocationTypeId: 9
+    locationDetail: unknown
+    cbsCode: 23
+    created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+    modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+  prov-10:
+    id: 10
+    slug: noord-brabant
+    title: Noord-Brabant
+    title_lng: Noord-Brabant
+    rdX: 0
+    rdY: 0
+    lat: 0
+    lng: 0
+    locationCode: PROV00010
+    provinceCode: NB
+    sourceLocationTypeId: 10
+    locationDetail: unknown
+    cbsCode: 30
+    created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+    modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+  prov-11:
+    id: 11
+    slug: drenthe
+    title: Drenthe
+    title_lng: Drenthe
+    rdX: 0
+    rdY: 0
+    lat: 0
+    lng: 0
+    locationCode: PROV00011
+    provinceCode: DR
+    sourceLocationTypeId: 11
+    locationDetail: unknown
+    cbsCode: 22
+    created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+    modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+  prov-12:
+    id: 11
+    slug: groningen
+    title: Groningen
+    title_lng: Groningen
+    rdX: 0
+    rdY: 0
+    lat: 0
+    lng: 0
+    locationCode: PROV00012
+    provinceCode: GR
+    sourceLocationTypeId: 12
+    locationDetail: unknown
+    cbsCode: 20
+    created: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
+    modified: <dateTimeBetween('2013-06-27 22:52:55', '2013-06-27 22:52:55')>
