@@ -1,8 +1,8 @@
 {
-  "name": "stefanius/dagvandeweek",
+  "name": "stefanius/locatie-informatie",
   "license": "Not decided yet",
   "type": "project",
-  "description": "Website DagVanDeWeek.nl",
+  "description": "Website locatie-informatie.nl",
   "autoload": {
     "psr-0": { "": "src/" }
   },
