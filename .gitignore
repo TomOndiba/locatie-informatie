@@ -37,4 +37,8 @@
 /composer.phar
 
 .vagrant
-sites/locatie-informatie/SQL/postcode_NL.sql
+
+node_modules
+/node_modules/*
+node_modules/*
+/app/sessions/*

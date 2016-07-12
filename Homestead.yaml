@@ -1,0 +1,23 @@
+---
+ip: "192.168.10.22"
+memory: 2024
+name: locatie-informatie
+cpus: 2
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: ./
+      to: /home/vagrant/locatie-informatie.nl
+
+sites:
+    - map: locatie-informatie.dev
+      to: /home/vagrant/locatie-informatie.nl/web
+      type: symfony
+
+databases:
+    - locatie_informatie_nl

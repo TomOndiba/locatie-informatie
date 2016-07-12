@@ -1,0 +1,26 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     locatie_informatie_nl
+    database_user:     homestead
+    database_password: secret
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            nl
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+    app.version: 0.0.1
+    app.title: Locatie Informatie
+    app.cmstitle: Backoffice
+    app.http_entrypoint: http://locatie-informatie.nl
+    app.twitter_name: ~
+    app.twitter_url: ~
+    app.facebook_url: ~
+    app.googleplus_url: ~
+    app.domain: ~
+    app.analyticsid: ~
