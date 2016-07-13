@@ -1,7 +1,7 @@
 <?php
 
 // All Deployer recipes are based on `recipe/common.php`.
-require 'recipe/symfony.php';
+require 'recipe/symfony3.php';
 
 // Configure servers
 server('production', 'spongebob.remote')
