@@ -4,10 +4,10 @@
 require 'recipe/symfony3.php';
 
 // Configure servers
-server('production', 'spongebob.remote')
+server('production', 'locatie-informatie.nl')
     ->user('web')
     ->identityFile()
-    ->env('deploy_path', '/home/web/sites/test.locatie-informatie.nl');
+    ->env('deploy_path', '/home/web/sites/locatie-informatie.nl');
 
 // Specify the repository from which to download your project's code.
 // The server needs to have git installed for this to work.
